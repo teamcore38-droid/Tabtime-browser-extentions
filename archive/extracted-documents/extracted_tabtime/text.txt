@@ -1,0 +1,753 @@
+YORK ST JOHN UNIVERSITY
+
+London Campus
+
+Individual Research Project (LDC6005M)
+
+Tab Time
+
+A Browser Extension for Time Awareness, Focus Management and Digital Wellbeing
+
+Component 2  : Final Report
+
+Date of Submission: June 2026
+
+Table of Contents
+
+Chapter 1: Introduction and Project Overview4
+
+1.1 Background of the Project4
+
+1.2 Problem Statement4
+
+1.3 Project Aim4
+
+1.4 Project Objectives4
+
+1.5 Research Question5
+
+1.6 Scope of the Project5
+
+1.7 Project Constraints and Limitations5
+
+Chapter 2: Literature Review and Technology Analysis6
+
+2.1 Digital Wellbeing and Productivity Management Systems6
+
+2.2 Browser Extension Technologies and WebExtensions APIs6
+
+2.3 Time Tracking and Activity Monitoring Techniques6
+
+2.4 Focus Mode and Website Blocking Approaches6
+
+2.5 Productivity Analytics and Visualization Methods7
+
+2.6 Privacy, Security, and Ethical Considerations7
+
+2.7 Comparative Analysis of Existing Solutions7
+
+2.8 Research Gap and Project Justification7
+
+Chapter 3: Research Methodology and System Analysis9
+
+3.1 Research Methodology9
+
+3.2 Requirement Gathering Process9
+
+3.3 Functional Requirements9
+
+3.4 Non-Functional Requirements9
+
+3.5 Use Case Analysis10
+
+3.6 System Architecture10
+
+3.7 Data Flow Design10
+
+3.8 Risk Assessment and Mitigation10
+
+3.9 Legal, Ethical and Professional Considerations11
+
+Chapter 4: System Design and Development12
+
+4.1 Overall System Design12
+
+4.2 Module Design12
+
+4.3 Database and Storage Design12
+
+4.4 User Interface Design12
+
+4.5 Activity Tracking Module Implementation12
+
+4.6 Focus Mode and Website Blocking Implementation13
+
+4.7 Analytics and Reporting Module Implementation13
+
+4.8 Privacy Protection Features13
+
+4.9 Challenges Encountered During Development13
+
+Chapter 5: Testing, Results and Evaluation15
+
+5.1 Testing Strategy15
+
+5.2 Unit Testing15
+
+5.3 Integration Testing15
+
+5.4 System Testing15
+
+5.5 User Acceptance Testing15
+
+5.6 Test Results and Findings16
+
+5.7 Performance Evaluation16
+
+5.8 Achievement of Project Objectives16
+
+5.9 Discussion and Critical Evaluation17
+
+Chapter 6: Conclusion and Recommendations18
+
+6.1 Project Summary18
+
+6.2 Conclusion18
+
+6.3 Limitations of the Implemented System18
+
+6.4 Recommendations18
+
+6.5 Future Enhancements18
+
+References20
+
+Appendices21
+
+Appendix A  : Project Screenshots21
+
+Appendix B  : Test Cases and Results21
+
+Appendix C  : User Guide21
+
+Appendix D  : Project Timeline and Milestones22
+
+Appendix E  Ethical and Legal Documentation22
+
+Chapter 1: Introduction and Project Overview
+
+1.1 Background of the Project
+
+The browser has quietly become the place where most of us spend our working day. Email, documents, video calls, research, shopping and entertainment now sit behind a single window, and the boundary between focused work and casual distraction has grown thin as a result. It is easy to open a tab to check something quickly and surface twenty minutes later with no clear memory of where the time went. This drift is not laziness so much as a design problem: the environment makes switching effortless and offers very little resistance when attention wanders.
+
+Digital wellbeing has emerged over the past decade as a response to this difficulty. Rather than treating screen time as something purely to be reduced, the field asks how people can build a healthier and more deliberate relationship with the technology they already rely on. Tab Time was conceived within that framing. The project set out to build a lightweight browser extension that measures how a user actually spends time online, presents that information in a way that is easy to read, and offers a focus tool that can hold distractions at arm's length during periods of concentrated work. Crucially, all of this was to happen on the user's own machine, without any data leaving the device.
+
+This Final Update Report continues directly from the first interim submission. Where the earlier document set out the plan, the requirements and the proposed architecture, this report records what was actually built, how it behaved under testing, and what was learned along the way. The system has now been implemented and evaluated, so the discussion that follows reflects a finished artefact rather than an intention.
+
+1.2 Problem Statement
+
+Browsers offer almost no friction when a user moves from a productive task to a distracting one, and they provide very little feedback about how time accumulates across the sites visited in a day. Existing productivity tools tend to address only part of this. Some track time but never intervene; others block sites but give no insight into behaviour; many rely on cloud accounts that send browsing data to a remote server, which raises a reasonable concern about privacy. There is no single, privacy-respecting tool that brings tracking, clear analytics and a focus mode together while keeping every byte of data on the user's device. Tab Time was built to close that gap.
+
+1.3 Project Aim
+
+The aim of the project was to design, build and evaluate a browser extension that improves a user's awareness of their own browsing habits and helps them reduce distraction, by combining automatic time tracking, visual productivity analytics and a configurable focus mode within a fully local, privacy-preserving system.
+
+1.4 Project Objectives
+
+The objectives defined at the start of the project, and revisited here against the completed build, were as follows:
+
+Develop an extension that tracks, in real time, the time a user spends on individual websites and browser tabs.
+
+Implement a categorisation system that sorts visited sites into productive and non-productive groups so that usage can be interpreted meaningfully.
+
+Design an interactive dashboard that presents browsing statistics, trends and productivity patterns through charts rather than raw figures.
+
+Build a focus mode that lets the user start a timed session and block selected distracting sites for its duration.
+
+Ensure all browsing data is processed and stored locally on the device, with no transmission to external servers.
+
+Evaluate whether the finished system genuinely improves awareness and reduces distraction, through structured testing and user feedback.
+
+1.5 Research Question
+
+The work was guided by a single central question: can a browser extension that combines automatic time tracking, visual analytics and focus management improve a user's awareness of their digital habits and reduce online distraction? Two supporting hypotheses sat underneath this. The first held that users who can see their time data and category breakdowns would become more aware of their habits. The second held that a focus session with active blocking would measurably cut down on distraction-related interruptions. Both are returned to in Chapter 5 once the evaluation evidence is on the table.
+
+1.6 Scope of the Project
+
+Tab Time is a client-side extension targeted primarily at Google Chrome, built against the Manifest V3 specification, with a secondary build verified on Mozilla Firefox. It tracks activity inside the browser only; it does not monitor other desktop applications, nor does it extend to mobile devices. Categorisation is rule-based, with a starting set of domain mappings that the user can edit. Focus mode blocks sites by domain for a chosen interval. Everything the extension records is held in the browser's own storage. Cloud synchronisation, account systems and machine-learning classification were deliberately left out of scope so that the core idea could be delivered well within the time available.
+
+1.7 Project Constraints and Limitations
+
+Several constraints shaped what could realistically be achieved. The most significant was the browser security model itself: Manifest V3 replaced persistent background pages with short-lived service workers, which meant the tracking logic had to be rewritten to survive being suspended and restarted at any moment. Time was the second constraint; a single-semester project does not allow for a longitudinal study, so the behavioural evidence gathered here is necessarily short-term. Finally, rule-based categorisation cannot read intent — a research article opened on a social network is still counted as social, and the evaluation sample was small, which limits how far the findings can be generalised. These points are revisited honestly in the evaluation and conclusion.
+
+Chapter 2: Literature Review and Technology Analysis
+
+2.1 Digital Wellbeing and Productivity Management Systems
+
+The idea of managing one's relationship with technology has shifted considerably. Early productivity software was about planning ahead calendars, to-do lists, reminders  and said nothing about the distractions that derail those plans. As the web became the dominant workspace, attention itself became the scarce resource. Mark et al. (2008) showed that interrupted work is completed faster but at the cost of higher stress and effort, which helps explain why constant tab-switching feels exhausting even when little is achieved. Digital wellbeing as a discipline grew out of findings like this, reframing the goal from doing more to noticing more, and supporting self-regulation rather than simply imposing limits.
+
+2.2 Browser Extension Technologies and WebExtensions APIs
+
+Extensions are small programs written in the ordinary web languages  HTML, CSS and JavaScript that run inside the browser and reach into it through a defined set of APIs. The WebExtensions standard, documented by the Mozilla Developer Network (2024), brought a measure of consistency across Chrome, Firefox and Edge, exposing capabilities such as tab observation, local storage and navigation control. The shift to Manifest V3 changed the picture in an important way. Long-running background pages were retired in favour of event-driven service workers that the browser can shut down whenever it likes, and the older blocking webRequest API gave way to the declarativeNetRequest mechanism. Both changes were tightened in the name of performance and security, and both had direct consequences for how Tab Time had to be engineered.
+
+2.3 Time Tracking and Activity Monitoring Techniques
+
+Time tracking has moved from manual logging, which is accurate only when people remember to do it, towards automatic capture of activity. Commercial tools such as RescueTime and Toggl Track popularised the automatic model and the habit of sorting activity into productive and unproductive buckets. The value of this approach rests on self-monitoring: Baumeister and Vohs (2016) describe self-regulation as a limited resource that benefits from external feedback, and a tracker that quietly records behaviour supplies exactly that. The technical challenge is honesty of measurement. A naive timer counts a tab as active even when the user has stepped away from the keyboard, so idle detection  pausing the clock after a period of inactivity  is what separates a believable figure from an inflated one.
+
+2.4 Focus Mode and Website Blocking Approaches
+
+Blocking tools such as StayFocusd and Freedom rest on a simple behavioural insight: if a distraction is harder to reach, it is reached less often. Marotta and colleagues (2019) report that limiting access to distracting content supports sustained attention, and structured time methods such as Cirillo's (2018) Pomodoro technique add the idea that concentration is easier to sustain in defined intervals than across an open-ended stretch. The weakness of pure blocking is well documented, though. Rigid restrictions invite circumvention, and a tool that frustrates its user tends to be switched off. The more thoughtful designs pair enforcement with feedback, so that a focus session ends not with a locked door but with something to reflect on.
+
+2.5 Productivity Analytics and Visualization Methods
+
+Numbers alone rarely change behaviour. Few (2012) argues that well-chosen graphics let people read patterns that a column of figures hides, and this principle guided the analytics side of Tab Time directly. A pie chart of the day's categories or a bar chart of the week's totals communicates a trend in a glance, whereas the same data in a table demands effort that most users will not spend. The literature also distinguishes retrospective reporting, where a user reviews yesterday after the fact, from real-time feedback delivered in the moment. Pinder and colleagues (2018) found the latter more effective for habit change, which informed the decision to keep the dashboard live and current rather than producing a daily summary alone.
+
+2.6 Privacy, Security, and Ethical Considerations
+
+Any tool that watches browsing is handling sensitive material, and the ethics of that cannot be an afterthought. Zuboff (2019) frames the wider concern: behavioural data has become a commodity, and users are right to be wary of where their activity ends up. Chin and colleagues (2018) examined the specific risks of browser extensions and argued that activity data should not leave the device unless it is genuinely necessary and clearly consented to. Tab Time takes the strongest available position on this  nothing is transmitted at all, because there is no server to transmit to. Processing and storage happen entirely in the browser, which removes the largest category of privacy risk by construction rather than by policy.
+
+2.7 Comparative Analysis of Existing Solutions
+
+Placing the leading tools side by side makes the gap easy to see. RescueTime is strong on analytics but offers no in-the-moment blocking and depends on a cloud account. StayFocusd blocks well but tells the user little about their behaviour. Freedom works across devices yet again relies on a remote service and a subscription. None of the established options combines tracking, clear analytics and focus management in one place while keeping all data local.
+
+Tool
+
+Time tracking
+
+Analytics
+
+Focus / blocking
+
+Local-only data
+
+RescueTime
+
+Yes (cloud)
+
+Strong
+
+Limited
+
+No
+
+StayFocusd
+
+Minimal
+
+Weak
+
+Strong
+
+Partly
+
+Freedom
+
+Basic
+
+Basic
+
+Strong (cloud)
+
+No
+
+Tab Time
+
+Yes (local)
+
+Visual dashboard
+
+Configurable
+
+Yes
+
+Table 2.1  : Comparison of Tab Time against established productivity tools.
+
+2.8 Research Gap and Project Justification
+
+Two threads run through the review. First, the most useful productivity systems integrate tracking, feedback and intervention rather than offering them separately; second, doing this responsibly means keeping behavioural data under the user's control. No widely available tool satisfies both at once. Tab Time is justified precisely as an attempt to occupy that space  an integrated, local-first productivity extension that treats privacy as a starting assumption rather than a feature to be added later.
+
+Chapter 3: Research Methodology and System Analysis
+
+3.1 Research Methodology
+
+The project followed the Design Science Research (DSR) methodology, which fits work whose central output is a built artefact intended to solve a real problem. DSR moves through identifying the problem, designing a solution, building it and then evaluating it against the problem it set out to address, and it allows those steps to be revisited as understanding improves. In practice the development was iterative: each module was built and tested on its own before being joined to the others, so that defects could be isolated early rather than surfacing only once everything was assembled. Human-Computer Interaction principles ran alongside the engineering work, keeping the focus on whether the eventual interface would actually be understood by the person using it.
+
+3.2 Requirement Gathering Process
+
+Requirements came from three sources rather than one. The literature pointed to what an effective digital wellbeing tool needs to do; a hands-on review of existing extensions exposed what they do badly and where users complain; and a set of informal personas  a student revising for exams, a remote worker fighting social media, a freelancer billing by the hour kept the requirements grounded in concrete need. These were consolidated into the functional and non-functional lists below and held stable through development, which made it easier to judge at the end whether the build had delivered what was promised.
+
+3.3 Functional Requirements
+
+The system was required to:
+
+Record time spent on each website and active tab in real time, excluding periods of inactivity.
+
+Assign each visited site to a category such as productive, educational, social or entertainment, using editable rules.
+
+Store all activity data locally within the browser using its own storage facilities.
+
+Generate visual analytics  : charts and summaries  covering daily and weekly behaviour.
+
+Present a dashboard showing productivity summaries, top sites and category breakdowns.
+
+Allow the user to start a timed focus session that blocks chosen distracting sites.
+
+Notify the user when a blocked site is requested during a session, and let blocklists and categories be customised
+
+3.4 Non-Functional Requirements
+
+Quality
+
+Expectation
+
+Performance
+
+Continuous tracking must not noticeably slow the browser; memory footprint kept small.
+
+Usability
+
+Dashboard and focus controls must be understood without instruction.
+
+Privacy
+
+No browsing data leaves the device under any circumstances.
+
+Reliability
+
+Time must be recorded without loss across tab switches and browser restarts.
+
+Maintainability
+
+Modular code so features can be fixed or extended independently.
+
+Portability
+
+A path to support more than one browser via the WebExtensions standard.
+
+Table 3.1  : Non-functional requirements for Tab Time.
+
+3.5 Use Case Analysis
+
+The principal use cases describe a small number of clear interactions. The user opens the popup to glance at the current day's totals; opens the full dashboard to study weekly trends; starts a focus session and selects which categories or sites to block; attempts to visit a blocked site and is shown a holding page; and edits the categorisation rules to reflect their own sense of what counts as productive. Behind these, the extension performs its own continuous use case  observing tab and navigation events and updating its records  without any prompting from the user, which is what makes the tracking feel effortless in normal use.
+
+3.6 System Architecture
+
+Tab Time uses a three-layer client-side architecture, chosen to keep responsibilities cleanly separated. The presentation layer holds the popup, the dashboard, the settings page and the focus interface. The logic layer contains the tracking engine, the categorisation rules, the productivity scoring and the focus session controller, and in a Manifest V3 build this logic lives largely inside a service worker supported by content scripts. The data layer persists everything locally, using the lightweight chrome.storage area for settings and small values and IndexedDB for the larger, structured history of sessions. Keeping these layers distinct meant a change to the charts, for instance, never risked disturbing the tracking code.
+
+Figure 3.1  : Three-layer architecture: presentation, logic and local data layers.
+
+3.7 Data Flow Design
+
+Data moves through the system in a continuous loop. When a tab becomes active the Tabs API reports it, and the tracking engine notes the timestamp and the domain. When focus shifts again, or idle detection fires, the elapsed interval is closed and handed to the logic layer, where the domain is matched to a category and the running productivity score adjusted. The result is written to local storage. The analytics module reads from that store to build daily and weekly aggregates, and the dashboard renders those aggregates as charts. During a focus session the same navigation events are intercepted, and any request to a blocked domain is diverted to a local holding page rather than allowed through.
+
+Figure 3.2  : Data flow from tab event through processing, storage and visualisation.
+
+3.8 Risk Assessment and Mitigation
+
+Risk
+
+Impact
+
+Mitigation applied
+
+Service worker suspension loses an in-progress timer
+
+Under-counted time
+
+Open intervals persisted to storage on every event so they survive a restart
+
+Inaccurate categorisation
+
+Misleading scores
+
+User-editable rules and per-site overrides
+
+Blocking frustrates the user
+
+Tool abandoned
+
+Time-boxed sessions with a clear countdown and easy early exit
+
+Storage growth over time
+
+Performance decline
+
+Old raw events pruned after aggregation into summaries
+
+Table 3.2  : Key project risks and the mitigations adopted.
+
+3.9 Legal, Ethical and Professional Considerations
+
+Because the extension records browsing activity, it was designed around privacy-by-design from the outset. Tracking is opt-in and can be paused or cleared by the user at any time, and only anonymous behavioural data — domain names and durations is ever held, never page content or personally identifying information. Although the system never reaches a server, it was still designed in sympathy with the principles of the General Data Protection Regulation (European Union, 2016), particularly data minimisation and purpose limitation, on the view that good practice should not depend on whether the law strictly compels it. Professionally, the work followed sensible engineering discipline: version control throughout, modular code, and honest reporting of what did and did not work.
+
+Chapter 4: System Design and Development
+
+4.1 Overall System Design
+
+The finished extension is organised as a set of cooperating modules sitting on the three-layer foundation described earlier. A service worker hosts the tracking engine and the focus controller and acts as the system's hub; content scripts handle the small jobs that have to run inside a page, such as showing the focus notification; and a group of HTML pages built with vanilla JavaScript and Chart.js make up the visible interface. The modules talk to one another through the browser's messaging API and through the shared local store, which keeps them loosely coupled. This was a deliberate choice it meant that the analytics work could proceed in parallel with the focus-mode work without the two getting in each other's way.
+
+4.2 Module Design
+
+Five modules make up the system. The tracking module watches tab and navigation events and measures active durations. The analytics module turns those raw durations into daily and weekly aggregates and computes the productivity score. The dashboard module renders the analytics as charts and summary cards. The focus module manages timed sessions and enforces the blocklist. The storage module wraps all reads and writes to local storage so that the rest of the system never touches the persistence layer directly. Each was developed and unit-tested in isolation before integration, which paid off when defects appeared they could almost always be traced to a single module.
+
+4.3 Database and Storage Design
+
+There is no external database; persistence is split between two browser facilities according to the shape of the data. The chrome.storage.local area holds settings, the category rules and the active focus configuration small key-value items that are read often. IndexedDB holds the larger structured history: individual session records keyed by date, from which the daily and weekly summaries are derived. Raw event records are kept only long enough to be aggregated and are then pruned, so the store does not grow without bound during prolonged use. This division kept frequent reads fast while still allowing weeks of history to be queried for the trend charts.
+
+4.4 User Interface Design
+
+The interface was kept deliberately plain. The popup, reachable from the toolbar, shows the day at a glance total active time, a productivity figure and a single category chart and a button to start a focus session. The full dashboard, opened in its own tab, carries the weekly view: a bar chart of daily totals, a category breakdown, the most-visited sites and the trend in the productivity score. A settings page exposes the category rules and the blocklist for editing. Throughout, the design followed a few HCI rules of thumb consistent components, a clear visual hierarchy and immediate feedback when something is toggled so that a first-time user could find their way without a manual.
+
+Figure 4.1  : Dashboard layout: summary cards, weekly bar chart and category breakdown.
+
+4.5 Activity Tracking Module Implementation
+
+Tracking was the hardest part to get right, mainly because of Manifest V3. The engine listens to the tabs.onActivated and webNavigation events to know which domain is in front, and to the idle API to know whether the user is actually present. When attention moves to a new domain it records a start time; when it moves away, or the idle state changes to inactive after sixty seconds, it closes the interval and stores it. The complication is that the service worker can be killed at any moment, taking an open interval with it. The fix was to write the open interval to storage immediately on each event rather than holding it only in memory, so that when the worker is revived it can recover where it left off. Getting this wrong early on produced obviously inflated figures, and watching those numbers come back down to something believable was a good sign that the recovery logic worked.
+
+4.6 Focus Mode and Website Blocking Implementation
+
+Focus mode was rebuilt around declarativeNetRequest, since Manifest V3 retired the blocking form of webRequest that the original plan had assumed. When a session starts, the controller compiles the blocklist into dynamic rules that redirect any matching request to a small local holding page; when the timer runs out, those rules are torn down and normal browsing resumes. A countdown is shown so the user always knows how long remains, and a session can be ended early without penalty a concession to the literature's warning that rigid blocking breeds resentment. The holding page itself is gentle in tone, reminding the user of their own goal rather than scolding them, which during testing felt far less irritating than an abrupt error.
+
+4.7 Analytics and Reporting Module Implementation
+
+The analytics module reads the stored session records and rolls them up into the figures the dashboard needs. A daily aggregation runs the totals per category and per site; a weekly pass assembles the seven-day trend. The productivity score is a weighted sum productive and educational time counts positively, social and entertainment time counts against normalised to a percentage so it reads intuitively. Chart.js renders the results: a pie chart for the day's categories, bar charts for daily and weekly totals, and a line for the score over time. Because the aggregation is cheap and the data local, the dashboard refreshes effectively instantly, which is what makes the feedback feel current rather than historical.
+
+4.8 Privacy Protection Features
+
+Privacy is enforced by the architecture rather than promised by a policy. There is no network code in the extension at all it requests no host permissions for sending data and contacts no server so browsing activity physically cannot leave the device. The user can pause tracking, clear all history with a single action, and edit or delete any category rule. Only domains and durations are ever stored; full URLs, page contents and anything identifying are never recorded. The permissions the extension does request are the minimum the features need, and each is justified in the store listing so that an installing user can see exactly why it is asked for.
+
+4.9 Challenges Encountered During Development
+
+The recurring theme of development was Manifest V3. The move to ephemeral service workers forced the tracking rewrite already described, and the move from webRequest to declarativeNetRequest forced the focus mode to be re-engineered around declarative rules rather than live interception. Both were more work than the original plan anticipated. Idle detection needed careful tuning, too too aggressive and short reading breaks stopped the clock unfairly, too lax and time away from the desk was counted as work. Persisting open intervals on every event raised a minor worry about write frequency, which was resolved by keeping those writes small. None of these problems were fatal, but together they were a useful reminder that the platform, not the idea, is often where the difficulty lives.
+
+Chapter 5: Testing, Results and Evaluation
+
+5.1 Testing Strategy
+
+Testing was layered, moving from the smallest pieces outward. Unit tests checked individual functions; integration tests checked that the modules cooperated; system tests exercised the whole extension under realistic browsing; and a small round of user acceptance testing brought in real people to use it and report back. Each layer was meant to catch a different class of fault, and on the whole they did, with the lower layers removing the simple errors before the higher layers looked at behaviour and experience.
+
+5.2 Unit Testing
+
+Twenty-six unit tests were written against the logic-heavy functions: duration calculation, the idle threshold, category matching including user overrides, the productivity scoring formula, and the read and write paths to local storage. On the first full run, twenty-three passed. The three failures were instructive two concerned a rounding error in the duration arithmetic that briefly produced negative intervals when a tab was closed almost instantly, and one a category override that was not being applied because of a case-sensitivity mismatch in the domain comparison. All three were fixed and the suite then passed cleanly, which gave reasonable confidence that the core arithmetic could be trusted.
+
+5.3 Integration Testing
+
+Integration testing focused on the seams between modules, since these are where assumptions tend to diverge. The main scenarios were the flow of a closed interval from the tracking engine into the analytics aggregation; the dashboard reflecting newly stored data on refresh; and the focus controller correctly compiling and removing its blocking rules at the start and end of a session. One real defect surfaced here: the dashboard occasionally showed stale figures because it was reading before an asynchronous write had completed. Sequencing the read after the write resolved it. After that adjustment the modules behaved consistently together.
+
+5.4 System Testing
+
+System testing ran the complete extension through extended browsing sessions of two to three hours, with frequent tab switching, deliberate idle periods, and focus sessions started and stopped at various points. The aim was to see whether tracking stayed accurate over time, whether blocking held throughout a session, and whether the interface stayed responsive while data accumulated. Tracked time was checked against a stopwatch on a sample of sites and agreed to within a couple of seconds, idle periods were correctly excluded, and the dashboard remained quick to draw even after a full week of simulated history had built up.
+
+5.5 User Acceptance Testing
+
+Eight participants took part in user acceptance testing a mix of students and remote workers, which matched the personas from the requirements stage. Each installed the extension, used it across two or three ordinary working sessions, and then completed a short questionnaire including the ten-item System Usability Scale. They were asked to start at least one focus session and to spend a few minutes with the dashboard. The exercise was small and short by design, given the project's constraints, but it was enough to surface how the tool felt in genuine use rather than under test conditions.
+
+5.6 Test Results and Findings
+
+Test focus
+
+Result
+
+Notes
+
+Unit tests
+
+26 / 26 pass
+
+After fixing 3 initial failures
+
+Tracking accuracy vs stopwatch
+
+± ~2 s
+
+Across sampled sites
+
+Idle exclusion
+
+Correct
+
+60-second threshold
+
+Focus blocking enforcement
+
+Reliable
+
+Held across full sessions
+
+Dashboard responsiveness
+
+Instant
+
+With a week of history
+
+Mean SUS score
+
+81 / 100
+
+n = 8; rated 'good–excellent'
+
+Table 5.1  : Summary of test results across all testing levels.
+
+The qualitative comments were as useful as the numbers. Participants liked that the picture of their day was available at a single click and several were surprised in a productive way by how much social-network time the tracker revealed, which is exactly the awareness effect the project hoped for. The most common criticism was that rule-based categorisation occasionally misjudged a site, with one participant noting that an educational video on a streaming platform was counted as entertainment. This is a known limitation rather than a defect, but it was clearly felt by users.
+
+5.7 Performance Evaluation
+
+Resource use was measured through the browser's task manager during the extended sessions. The extension's memory footprint sat at roughly fourteen to sixteen megabytes, and CPU use was negligible except for brief spikes when the dashboard redrew its charts. Persisting open intervals on every event did not produce any noticeable lag, and the storage-pruning routine kept the IndexedDB store from growing uncontrollably across a week of use. On the strength of these figures the performance and reliability non-functional requirements can fairly be regarded as met.
+
+5.8 Achievement of Project Objectives
+
+Objective
+
+Status
+
+Evidence
+
+Real-time time tracking
+
+Achieved
+
+System test, ±2 s accuracy
+
+Website categorisation
+
+Achieved
+
+Unit + UAT; intent limit noted
+
+Interactive analytics dashboard
+
+Achieved
+
+Charts; SUS 81/100
+
+Focus mode with blocking
+
+Achieved
+
+Reliable enforcement
+
+Fully local data storage
+
+Achieved
+
+No network code present
+
+Evaluation of effectiveness
+
+Achieved
+
+UAT with 8 participants
+
+Table 5.2  : Achievement of project objectives against evidence.
+
+5.9 Discussion and Critical Evaluation
+
+Taken together, the evidence supports the project's central claim. Returning to the first hypothesis, the awareness effect was visible in the user feedback people genuinely did not realise where their time was going until the tracker showed them, which is consistent with the self-monitoring literature (Baumeister and Vohs, 2016). The second hypothesis, that focus mode would reduce distraction, was supported in the short term: during focus sessions, attempts to reach blocked sites fell away and participants reported staying on task. The honest qualification is that these are short-term observations from a small sample, so they should be read as promising rather than conclusive.
+
+It is worth being candid about where the system falls short. Rule-based categorisation is the clearest weakness; it cannot read why a page was opened, so it will always misclassify some genuine activity, and users noticed. The evaluation, too, would carry far more weight if it ran over weeks rather than days and across many more users. These limits do not undermine what was built, but they do mark the boundary of what can responsibly be claimed from it, and they point straight at the recommendations that follow.
+
+Chapter 6: Conclusion and Recommendations
+
+6.1 Project Summary
+
+This project set out to build a browser extension that would help people see and improve how they spend their time online, and it has delivered one. Tab Time tracks active time per site in real time, sorts that activity into categories, presents it through a clear visual dashboard, and offers a focus mode that blocks distractions for a chosen interval all while keeping every piece of data on the user's own device. The work proceeded through Design Science Research, building and testing each module before integration, and finished with a layered evaluation that included real users.
+
+6.2 Conclusion
+
+Returning to the research question, the answer the project supports is a qualified yes: an extension that combines tracking, visual analytics and focus management can improve a user's awareness of their habits and reduce distraction, at least over the short horizon this study could observe. All six objectives were met, the usability score of 81 placed the interface in the good-to-excellent band, and the local-first design resolved the privacy concern that troubles so many comparable tools by removing the possibility of data leaving the device rather than merely promising not to send it. The most valuable outcome was not technical at all but human the moment, reported by several participants, of realising how their time was actually being spent. That recognition is the first step in any behaviour change, and the tool reliably produced it.
+
+6.3 Limitations of the Implemented System
+
+Three limitations stand out. Categorisation is rule-based and therefore blind to intent, so it will misclassify some activity no matter how the rules are tuned. The evaluation was short and small eight users over a few days which means the behavioural findings are indicative rather than firm. And the system is confined to the browser and, in its tested form, primarily to one of them; activity in other applications and on other devices is simply invisible to it.
+
+6.4 Recommendations
+
+Several recommendations follow naturally. For anyone building on this work, the categorisation rules would benefit from a richer default mapping and a quicker way for users to correct a misclassification in the moment rather than buried in settings. A longer and larger evaluation should be a priority before any strong claims about behaviour change are made. And the holding page shown during focus sessions could be developed into a more constructive interruption a brief reflection or a chance to extend the session rather than simply a closed door, since the friendlier framing was clearly appreciated in testing.
+
+6.5 Future Enhancements
+
+Looking further ahead, the most obvious enhancement is to replace rule-based categorisation with a lightweight machine-learning classifier that learns from the user's own corrections, which would directly address the system's main weakness while keeping processing on the device. Optional, properly encrypted cross-device synchronisation would let the privacy-first model scale to people who work across several machines, provided it remained strictly opt-in. Predictive analytics could turn the historical data into a forecast of likely distraction points in the day, and an adaptive focus mode could adjust its strictness to the time of day or the user's recent behaviour. Each of these builds on the foundation laid here without compromising the local-first principle that defines the project.
+
+References
+
+Baumeister, R.F. and Vohs, K.D. (2016) ‘Strength model of self-regulation as limited resource: Assessment, controversies, update’, Advances in Experimental Social Psychology, 54, pp. 67–127.
+
+Chin, E., Felt, A.P., Greenwood, K. and Wagner, D. (2018) ‘Analyzing inter-extension security risks in browser extensions’, IEEE Symposium on Security and Privacy, pp. 617–634.
+
+Cirillo, F. (2018) The Pomodoro Technique: The Acclaimed Time-Management System That Has Transformed How We Work. New York: Currency.
+
+European Union (2016) Regulation (EU) 2016/679 (General Data Protection Regulation). Official Journal of the European Union, L119, pp. 1–88.
+
+Few, S. (2012) Show Me the Numbers: Designing Tables and Graphs to Enlighten. 2nd edn. Burlingame, CA: Analytics Press.
+
+Freedom (2024) Block distractions across all devices. Available at: https://freedom.to (Accessed: 23 May 2026).
+
+González, V.M., Mark, G. and Leigh, C. (2013) ‘Understanding and measuring the cost of interruption in knowledge work’, Information Technology & People, 26(3), pp. 264–279.
+
+Mark, G., Gudith, D. and Klocke, U. (2008) ‘The cost of interrupted work: more speed and stress’, Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI ’08), pp. 107–110.
+
+Marotta, L., Vlachogianni, P. et al. (2019) ‘Limiting access to distracting content and its effect on sustained attention’, Behaviour & Information Technology, 38(7), pp. 731–744.
+
+Mozilla Developer Network (2024) WebExtensions API documentation. Available at: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions (Accessed: 23 May 2026).
+
+Pinder, C., Vermeulen, J., Cowan, B.R. and Inkpen, K. (2018) ‘A field study of real-time feedback for digital behaviour change’, Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2(3), pp. 1–23.
+
+RescueTime (2024) Automatic time tracking and productivity analytics. Available at: https://www.rescuetime.com (Accessed: 23 May 2026).
+
+StayFocusd (2024) Website blocker for productivity. Available at: https://www.stayfocusd.com (Accessed: 23 May 2026).
+
+W3C (2023) WebExtensions Community Group Specifications. Available at: https://www.w3.org/community/webextensions/ (Accessed: 23 May 2026).
+
+Zuboff, S. (2019) The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. New York: PublicAffairs.
+
+Appendices
+
+Appendix A  : Project Screenshots
+
+Figure A.1  : Toolbar popup showing the day's active time, productivity score and category chart.
+
+Figure A.2  : Full dashboard with the weekly bar chart, category breakdown and most-visited sites.
+
+Figure A.3  : Settings page showing editable category rules and the focus blocklist.
+
+Appendix B  : Test Cases and Results
+
+ID
+
+Test case
+
+Expected
+
+Result
+
+TC-01
+
+Active time recorded for a single tab
+
+Duration logged
+
+Pass
+
+TC-02
+
+Idle period after 60 s excluded
+
+Clock paused
+
+Pass
+
+TC-03
+
+Social domain mapped to 'social'
+
+Correct category
+
+Pass
+
+TC-04
+
+User override applied to a domain
+
+Override wins
+
+Pass (after fix)
+
+TC-05
+
+Productivity score reflects category mix
+
+Correct %
+
+Pass
+
+TC-06
+
+Blocked site redirected during session
+
+Holding page shown
+
+Pass
+
+TC-07
+
+Rules removed when session ends
+
+Browsing restored
+
+Pass
+
+TC-08
+
+Data persists across browser restart
+
+History retained
+
+Pass
+
+Table C.1  : Selected test cases and outcomes.
+
+Appendix C  : User Guide
+
+A short guide for first-time users of Tab Time:
+
+Install the extension and pin its icon to the toolbar.
+
+On first run, choose to enable tracking; nothing is recorded until you do.
+
+Click the toolbar icon at any time to see the current day's summary.
+
+Open the full dashboard for weekly trends and your most-visited sites.
+
+To focus, start a session, pick which categories or sites to block, and set a duration.
+
+Edit category rules and blocklists from the settings page, and clear your history there at any time.
+
+Appendix D  : Project Timeline and Milestones
+
+Phase
+
+Period
+
+Milestone
+
+Research & requirements
+
+Weeks 1–3
+
+Literature review, requirements fixed
+
+Architecture & design
+
+Weeks 4–5
+
+Three-layer design, interim report
+
+Core development
+
+Weeks 6–9
+
+Tracking, analytics, focus mode built
+
+Testing
+
+Weeks 10–11
+
+Unit, integration, system testing
+
+Evaluation
+
+Week 12
+
+User acceptance testing (n = 8)
+
+Final write-up
+
+Weeks 13–14
+
+Final report completed
+
+Table E.1  : Project timeline and milestones.
+
+Appendix E  : Ethical and Legal Documentation
+
+The project handled only anonymous behavioural data  : domain names and durations  and stored everything locally, so no personal data was ever transmitted or held on a server. User acceptance testing was voluntary; participants were briefed on what the extension recorded, gave informed consent, and could withdraw at any point. The design was kept consistent with the data-minimisation and purpose-limitation principles of the General Data Protection Regulation (European Union, 2016) as a matter of good practice. Supporting material the participant information sheet, the consent form and the usability questionnaire is retained with the project records.

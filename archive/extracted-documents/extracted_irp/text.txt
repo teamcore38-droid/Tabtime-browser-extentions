@@ -1,0 +1,903 @@
+Module- LDC6005M Individual Research Project
+
+(Cover Page for Component 1 only)
+
+Student Name
+
+Student Number
+
+(as shown on student ID card):
+
+Component Number
+
+(check assessment brief)
+
+Assessment Format
+
+(check assessment brief)
+
+Word Count / Pages / Duration / Other Limits:
+
+(check assessment brief)
+
+Attempt Number:
+
+Date of Submission:
+
+I have read and understood the Academic Misconduct statement.
+
+Tick to confirm ✔
+
+I have read and understood the Generative Artificial Intelligence use statement.
+
+Tick to confirm ✔
+
+I am satisfied that I have met the Learning Outcomes of this assignment
+
+(please check the Assignment Brief if you are unsure)
+
+Met ✔
+
+Contents
+
+Chapter 1: Introduction & Contextual Framework3
+
+1.1 Background to the Study3
+
+1.2 Problem Statement4
+
+1.3 Aim and Objectives4
+
+1.4 Research Question and Hypothesis5
+
+1.5 Scope and Limitations6
+
+1.6 Definition of Key Terms7
+
+1.7 Document Structure8
+
+Chapter 2: Literature Review9
+
+2.1 Introduction9
+
+2.2 Evolution of Digital Wellbeing and Productivity Tools9
+
+2.3 Browser Extension Technologies and WebExtensions APIs10
+
+2.4 Time Tracking and Productivity Analytics Systems10
+
+2.5 Focus Mode and Distraction Blocking Systems11
+
+2.6 Privacy Challenges in Monitoring Software11
+
+2.7 Research Gap12
+
+Chapter 3: Methodology and System Requirements13
+
+3.1 Introduction13
+
+3.2 Research Methodology13
+
+3.3 System Requirements Analysis13
+
+3.5 System Architecture and Data Flow17
+
+3.6 Tracking Logic and Analytics Processing19
+
+3.7 Ethical, Legal, and Professional Considerations21
+
+Chapter 4: System Design and Implementation22
+
+4.1 Introduction22
+
+4.2 Module Design and Functional Components22
+
+4.3 User Interface Design25
+
+4.4 Implementation of Core Features26
+
+4.5 Testing and Validation Approach28
+
+Chapter 5: Testing, Evaluation and Results30
+
+5.1 Introduction30
+
+5.2 Testing Strategy and Methodology30
+
+5.3 Results and Observations32
+
+5.4 Discussion of Findings33
+
+Chapter 6: Conclusion and Future Work34
+
+6.1 Conclusion of the Project34
+
+6.4 Future Work and Enhancements35
+
+Chapter 1: Introduction & Contextual Framework
+
+1.1 Background to the Study
+
+In recent years, the rapid growth of digital technologies has profoundly transformed the way individuals interact with information and entertainment. Web browsers have become an integral part of daily life, serving as gateways to work, social interaction, and leisure activities. While these technologies offer unprecedented convenience, they have also contributed to increasing levels of digital distraction and reduced focus among users. The modern workforce, in particular, faces challenges in maintaining productivity due to the constant influx of notifications, social media, and non-essential browsing activities.
+
+Digital wellbeing has emerged as a critical area of concern, focusing on how technology affects mental health, productivity, and lifestyle habits. Researchers and practitioners alike have explored strategies to mitigate excessive screen time, including time tracking tools, productivity analytics, and intervention mechanisms designed to promote mindful digital engagement. Browser extensions, as lightweight, client-side applications, provide a unique opportunity to implement such interventions directly within users’ browsing environments, offering real-time feedback and actionable insights without requiring additional devices or complex setups.
+
+This project, titled Tab Time: A Browser Extension for Time Awareness, Focus Management, and Digital Wellbeing, is positioned at the intersection of Human-Computer Interaction (HCI), software engineering, and behavioural intervention strategies. The aim is to create a system that not only monitors users' online behaviour but also provides structured interventions that help users regain control over their digital habits. By integrating automated time tracking, visual analytics, and focus management tools, Tab Time aspires to facilitate improved productivity and self-regulated digital engagement among users.
+
+Figure 1: Conceptual Overview
+
+1.2 Problem Statement
+
+The increasing use of web browsers for education, work, communication, and entertainment has led to higher levels of digital distraction and reduced productivity, as users are frequently interrupted by social media, streaming platforms, and other non-essential websites, which negatively affects focus and time management (Mark, Gudith and Klocke, 2008). Although productivity tools and browser extensions are available, many of them only provide basic features such as simple time tracking or website blocking without offering deeper insights into user behaviour. In addition, privacy and security concerns remain a key issue, as many existing tools rely on cloud-based systems that collect and process user data externally, raising trust-related concerns (Zuboff, 2019). Therefore, there is a need for a privacy-focused browser extension that integrates time tracking, productivity analytics, and distraction management in a single system, which is the goal of the proposed Tab Time system.
+
+1.3 Aim and Objectives
+
+Main Aim
+
+The main aim of this project is to design, develop, and evaluate a browser extension that promotes time awareness, focus management, and digital wellbeing by monitoring users’ browsing behaviour and providing real-time productivity insights and distraction management tools.
+
+Objectives
+
+To achieve the overall aim of the project, the following objectives have been identified:
+
+To develop a browser extension capable of accurately tracking the amount of time users spend across different websites and browser tabs in real-time.
+
+To implement a website categorisation system that classifies browsing activities into productive and non-productive categories to improve user awareness of digital habits.
+
+To design and develop an interactive dashboard that visually presents browsing statistics, productivity trends, and usage patterns through charts and graphical analytics.
+
+To implement a focus management module that allows users to create focus sessions and temporarily block distracting websites during work or study periods.
+
+To ensure that all browsing data is processed and stored locally on the user’s device in order to maintain user privacy and data security.
+
+To evaluate the effectiveness of the proposed system in improving users’ awareness of browsing behaviour and reducing digital distractions through system testing and user feedback.
+
+Figure 2: Main AIm diagram
+
+1.4 Research Question and Hypothesis
+
+Research Question
+
+The research conducted in this project is guided by the following central question:
+
+Can a browser extension that combines automated time tracking, visual productivity analytics, and focus management tools improve users’ awareness of their digital habits and reduce online distractions?
+
+This research question focuses on understanding whether behavioural intervention techniques integrated within a browser environment can positively influence productivity and digital wellbeing. The study also investigates how real-time feedback and browsing analytics can assist users in making more informed decisions regarding their online activities.
+
+Hypotheses
+
+To evaluate the effectiveness of the proposed system, the following hypotheses have been established:
+
+Hypothesis 1: Users who actively monitor their browsing behaviour through automated time tracking and visual analytics will demonstrate improved awareness of their digital habits and better time management.
+
+Hypothesis 2: Implementing focus sessions with website blocking functionality will reduce distraction-related interruptions during work and study activities.
+
+Hypothesis 3: Visual representations of browsing statistics, such as charts and productivity summaries, will provide more actionable behavioural insights compared to raw numerical data alone.
+
+The hypotheses will be evaluated through system testing, usage analysis, and user feedback collected during the evaluation phase of the project.
+
+1.5 Scope and Limitations
+
+The scope of this project is focused on the design and development of a browser extension named Tab Time, which aims to enhance users’ awareness of their digital behaviour and improve productivity through time tracking, visual analytics, and focus management features. The system is intended to operate as a client-side extension compatible with modern web browsers such as Google Chrome and Mozilla Firefox. It will monitor user interactions within the browser environment, categorise website usage, and present meaningful insights through an interactive dashboard. Additionally, the system includes a focus mode feature that allows users to temporarily restrict access to selected distracting websites during defined work or study sessions.
+
+The project is primarily limited to browser-level activity tracking and does not extend to monitoring system-wide application usage or mobile device behaviour. As the system is designed to function entirely on the client side, its capabilities are restricted by browser security policies and available WebExtension APIs. Furthermore, the accuracy of productivity classification depends on predefined website categorisation rules, which may not always fully reflect individual user intent or context. Another limitation is that the system does not incorporate advanced machine learning-based behavioural prediction models due to time and resource constraints within the scope of this academic project. Additionally, while the extension is designed with privacy considerations in mind by storing data locally, long-term scalability features such as cloud synchronisation or multi-device tracking are not included in the current implementation.
+
+1.6 Definition of Key Terms
+
+To ensure clarity and consistency throughout this report, the following key terms are defined in the context of this study:
+
+Browser Extension: A software module that extends the functionality of a web browser by adding new features or modifying existing behaviour within the browsing environment.
+
+Time Tracking: The process of monitoring and recording the duration a user spends on different websites or browser tabs during a browsing session.
+
+Digital Wellbeing: The concept of maintaining a healthy and balanced relationship with digital technologies, ensuring that technology use does not negatively impact mental health, productivity, or daily life.
+
+Productivity Analytics: The analysis and visual representation of user activity data to identify patterns, trends, and behavioural insights related to productive and unproductive online behaviour.
+
+Focus Mode: A feature within the proposed system that enables users to block or restrict access to selected websites for a specified period in order to minimise distractions and improve concentration.
+
+Website Categorisation: The classification of websites into predefined groups such as productive, educational, social, or entertainment-based categories to assist in behavioural analysis.
+
+Client-Side Processing: A system architecture approach where all data processing and storage occur locally within the user’s browser without relying on external servers.
+
+1.7 Document Structure
+
+This report is organised into several structured chapters in order to provide a clear understanding of the research background, system design, implementation approach, and evaluation of the proposed Tab Time browser extension.
+
+Chapter 1: Introduction and Contextual Framework presents the overall background of the study, identifies the core problem, and explains the aim, objectives, research questions, and hypotheses of the project. It also defines key terms and outlines the scope and limitations of the system, establishing a clear foundation for the rest of the report.
+
+Chapter 2: Literature Review will examine existing research and systems related to digital wellbeing, productivity tracking tools, and browser extension technologies. It will also analyse current approaches to time tracking, focus management, and behavioural intervention techniques, while identifying gaps in existing solutions that justify the need for the proposed system.
+
+Chapter 3: Methodology and System Analysis will describe the development approach used in this project, including the selected methodology, system requirements, and technology stack. It will also explain the overall system architecture, data flow, and core functional logic behind time tracking, analytics generation, and focus management features.
+
+Chapter 4: System Design and Implementation will focus on the detailed design of the system, including user interface design, module structure, and implementation of key functionalities such as real-time tracking, website categorisation, and focus mode enforcement.
+
+Chapter 5: Testing and Evaluation will present the testing strategies used to validate the system, along with evaluation results obtained through system testing and user feedback. This chapter will assess whether the system meets its defined objectives and research hypotheses.
+
+Chapter 6: Conclusion and Future Work will summarise the overall findings of the project, discuss the effectiveness of the proposed solution, and highlight possible future enhancements such as machine learning integration, cloud synchronisation, or expanded platform support.
+
+Chapter 2: Literature Review
+
+2.1 Introduction
+
+The rapid expansion of internet usage and browser-based activities has significantly changed how individuals manage work, study, and leisure, often leading to reduced attention span and productivity due to frequent interruptions and task switching (Mark, Gudith and Klocke, 2008). In response, various digital wellbeing and productivity tools such as time tracking applications, focus management systems, and browser extensions have been developed to support users in managing their online behaviour. However, many existing solutions tend to focus on either passive monitoring or strict website blocking, with limited integration of behavioural analytics and intervention features within a single system. This literature review therefore examines relevant research and technologies in digital wellbeing, browser extension development, and behavioural intervention strategies, while identifying existing gaps that justify the need for the proposed Tab Time system.
+
+2.2 Evolution of Digital Wellbeing and Productivity Tools
+
+The concept of digital wellbeing has evolved alongside the rapid advancement of personal computing and internet technologies. Early productivity tools primarily focused on task management and scheduling, such as desktop-based planners and reminder systems. These tools aimed to improve personal efficiency but did not address the impact of digital distractions or online behaviour patterns. As internet usage became more widespread, the need for tools that could monitor and manage online activity began to emerge.
+
+With the rise of web browsers as central platforms for work and communication, productivity solutions shifted towards browser-based extensions and applications. Tools such as RescueTime and StayFocusd introduced automated time tracking and website blocking features, allowing users to gain insights into their browsing habits and restrict access to distracting websites during focused work sessions. These developments marked a transition from simple productivity tracking to behavioural control mechanisms designed to reduce digital interruptions (González et al., 2013).
+
+Despite these advancements, many existing tools still operate in isolation, focusing either on tracking, blocking, or reporting, but rarely combining all three aspects into a unified system. This limitation highlights the need for more integrated solutions that can provide real-time feedback, actionable insights, and behavioural interventions within a single platform. The proposed Tab Time system is designed to address this gap by combining time tracking, productivity analytics, and focus management into a cohesive browser-based environment.
+
+2.3 Browser Extension Technologies and WebExtensions APIs
+
+Browser extensions are lightweight software components that extend the functionality of web browsers by interacting with web pages and browser-level services. They are typically developed using standard web technologies such as HTML, CSS, and JavaScript, and operate within a controlled browser environment. The introduction of the WebExtensions API has standardised extension development across major browsers, including Google Chrome, Mozilla Firefox, and Microsoft Edge, by providing a unified framework for accessing browser functionalities such as tab management, storage handling, and web request control. Components such as background scripts, content scripts, and extension pages enable a modular architecture where background scripts handle continuous processes, while content scripts interact directly with web pages to capture user activity (Mozilla Developer Network, 2024).
+
+Although browser extension APIs provide powerful capabilities for building feature-rich applications, they are constrained by strict security and performance policies. Extensions must request explicit permissions to access browser data, ensuring user privacy and controlled access to sensitive information. Additionally, continuous background processing can impact browser performance if not carefully managed. These limitations are particularly relevant for systems like Tab Time, which rely on real-time activity tracking and must therefore balance functionality, efficiency, and privacy within the browser environment.
+
+2.4 Time Tracking and Productivity Analytics Systems
+
+Time tracking and productivity analytics systems are designed to help users understand how time is distributed across different tasks and digital activities by monitoring interactions with applications and websites and converting this data into structured reports. Earlier systems relied on manual time logging, where users recorded their own activities, but modern solutions have shifted towards automated tracking to improve accuracy and reduce user effort. Tools such as RescueTime and Toggl Track enable continuous monitoring of digital behaviour and categorise usage into productive and unproductive activities. Research indicates that self-monitoring combined with feedback mechanisms such as dashboards can improve self-regulation and productivity (Baumeister and Vohs, 2016). In addition, the use of data visualisation techniques such as charts and graphs enhances user understanding, as visual representations are generally more effective than raw numerical data in supporting decision-making (Few, 2012).
+
+Despite these advancements, existing productivity analytics systems still have limitations. Many tools provide only retrospective insights, meaning users review their behaviour after it has occurred rather than receiving real-time feedback. Additionally, website categorisation systems are often rigid and may not accurately reflect different user contexts. These limitations highlight the need for more adaptive and real-time solutions that integrate tracking, analytics, and behavioural intervention within a single unified framework, as proposed in the Tab Time system
+
+2.5 Focus Mode and Distraction Blocking Systems
+
+Focus management systems and distraction blocking tools are designed to reduce interruptions during work or study sessions by restricting access to selected websites or applications. These systems are based on behavioural control principles, where external constraints support self-regulation and help users maintain concentration in environments filled with digital distractions. A common approach is website blocking, where specific URLs or categories are restricted for a set duration. Tools such as StayFocusd and Freedom allow users to create custom blocklists and schedule focus sessions, and research shows that reducing access to distracting content can improve sustained attention and reduce task switching (Marotta et al., 2019). More advanced systems introduce “focus modes” that combine timers, usage goals, and real-time enforcement, with studies suggesting that structured time intervals like the Pomodoro technique can enhance cognitive performance and reduce mental fatigue (Cirillo, 2018).
+
+However, existing focus management tools also have limitations. Strict blocking mechanisms can sometimes lead to user frustration or circumvention, reducing their long-term effectiveness. In addition, many tools operate independently and provide limited post-session feedback, meaning users are unable to evaluate the impact of their focus behaviour over time. This lack of reflective insight reduces opportunities for long-term behavioural improvement. These gaps highlight the need for systems that integrate enforcement with analytics, enabling users not only to block distractions but also to understand their productivity outcomes, which is addressed in the proposed Tab Time system.
+
+2.6 Privacy Challenges in Monitoring Software
+
+Monitoring software, including browser-based tracking and productivity tools, raises significant privacy and ethical considerations. These systems inherently collect sensitive information about user behaviour, including website visits, time spent on different platforms, and potentially personal or confidential data. The main challenge lies in balancing the benefits of behavioural insights with the protection of user privacy and compliance with data protection regulations.
+
+Studies have highlighted that users are often concerned about how their browsing data is stored, processed, and potentially shared, particularly with cloud-based analytics tools (Zuboff, 2019). Mismanagement of this data can lead to breaches of trust, identity exposure, and misuse of personal information. Therefore, modern monitoring software must incorporate privacy-by-design principles, such as client-side data processing, anonymization, clear consent mechanisms, and strict data retention policies.
+
+Browser extensions face additional privacy constraints due to security policies enforced by browser vendors. Permissions must be explicitly requested, and access to sensitive APIs is limited to prevent unauthorized data collection. Researchers argue that extensions collecting browsing data should avoid transmitting raw activity data to external servers unless strictly necessary and explicitly consented to by the user (Chin et al., 2018).
+
+The integration of privacy-aware designs with productivity and focus management features is critical for user trust. For tools like Tab Time, processing all tracking and analytics locally on the user’s device ensures that users retain control over their data while still benefiting from insights into their digital habits. Incorporating transparent privacy dashboards and easy-to-understand consent flows further strengthens ethical adherence and adoption.
+
+2.7 Research Gap
+
+Despite the availability of various productivity tracking tools, focus management applications, and browser-based monitoring extensions, there is still a clear gap in the integration of these functionalities into a single unified system. Most existing solutions focus on isolated features such as time tracking, website blocking, or productivity reporting, which limits their ability to provide a comprehensive digital wellbeing experience. Another limitation is the lack of real-time behavioural feedback, as many systems rely on retrospective analysis where users review their activity after it has occurred. Research indicates that real-time feedback is more effective in supporting self-regulation and habit formation compared to delayed reporting approaches (Pinder et al., 2018).
+
+In addition, many existing systems use rigid website categorisation methods that do not consider contextual differences in user intent, leading to less accurate productivity assessments. Privacy concerns also remain significant, particularly in cloud-based solutions that require external data processing and storage, which can reduce user trust (Zuboff, 2019). These limitations highlight the need for a more integrated and privacy-focused solution, and the proposed Tab Time system addresses this gap by combining real-time tracking, visual analytics, and focus management within a single browser-based extension.
+
+Chapter 3: Methodology and System Requirements
+
+3.1 Introduction
+
+This chapter outlines the methodological approach and system analysis used in developing the Tab Time browser extension, focusing on how the system is designed, implemented, and evaluated to address digital distraction and productivity loss. The project follows an iterative software engineering approach, where core modules such as time tracking, analytics, and focus management are developed and tested independently before integration into a complete system. It also applies Human-Computer Interaction (HCI) principles to ensure an intuitive user interface and meaningful presentation of behavioural feedback. In addition, the chapter defines the system requirements and overall architecture, which provide the foundation for the technical design and implementation discussed in later sections.
+
+3.2 Research Methodology
+
+The Tab Time browser extension is developed using the Design Science Research (DSR) methodology, which is appropriate for creating and evaluating IT artefacts that address real-world problems. DSR supports an iterative process of problem identification, solution design, development, and evaluation.
+
+The problem of digital distraction and poor time management in browser usage is first identified through literature review and analysis of existing tools. Based on this, a browser-based solution is designed and implemented as an integrated system combining time tracking, analytics, and focus management features.
+
+The system is developed in modular form, where each component is built and tested individually before integration. This ensures reliability and alignment with functional requirements.
+
+Finally, the system is evaluated through testing and behavioural observation to assess its effectiveness in improving user awareness and reducing digital distractions. The methodology ensures the development of a practical solution while also enabling systematic evaluation of its impact.
+
+3.3 System Requirements Analysis
+
+This section outlines the functional and non-functional requirements of the Tab Time browser extension. These requirements define what the system must achieve in order to successfully address the problem of digital distraction and support improved productivity through time tracking, analytics, and focus management features.
+
+3.3.1 Functional Requirements
+
+The functional requirements describe the core features and operations that the system must perform:
+
+The system shall track the time spent by users on each website and active browser tab in real time.
+
+The system shall categorise visited websites into predefined groups such as productive, educational, social, and entertainment-based categories.
+
+The system shall store browsing activity data locally within the user’s browser using secure storage mechanisms.
+
+The system shall generate visual analytics, including charts and graphs, to represent user browsing behaviour over daily and weekly periods.
+
+The system shall provide a dashboard interface that displays productivity summaries and usage statistics.
+
+The system shall allow users to activate a focus mode that blocks selected distracting websites for a defined time period.
+
+The system shall notify users when they attempt to access blocked websites during an active focus session.
+
+The system shall allow users to customise website categories and manage block lists according to personal preferences.
+
+Figure 3  Functional requirements of Tab Time:
+
+3.3.2 Non-Functional Requirements
+
+The non-functional requirements define the quality and performance expectations of the system:
+
+Performance: The extension shall operate efficiently without significantly affecting browser speed or system performance during continuous tracking.
+
+Usability: The user interface shall be simple, intuitive, and accessible, ensuring that users can easily navigate dashboards and activate focus features.
+
+Privacy: All user data shall be processed and stored locally on the device, ensuring no transmission of sensitive browsing data to external servers.
+
+Security: The system shall follow browser extension security guidelines to prevent unauthorized access to user data.
+
+Reliability: The tracking mechanism shall ensure accurate recording of browsing time without data loss during browser sessions.
+
+Scalability: The system architecture shall support future enhancements such as additional analytics features or integration with other browsers.
+
+Maintainability: The codebase shall follow modular design principles to allow easy debugging, updates, and feature expansion.
+
+Frontend Technologies
+
+The user interface of the extension is built using standard web technologies:
+
+HTML5: Used for structuring the extension interfaces, including the dashboard, popup, and settings pages. It ensures semantic clarity and compatibility across modern browsers.
+
+CSS3: Used for styling and layout design, enabling responsive interfaces through Flexbox and Grid systems. This ensures usability across different screen sizes.
+
+JavaScript (ES6+): Serves as the core programming language for implementing system logic, including time tracking, event handling, and data processing within the browser environment.
+
+Browser Extension APIs
+
+The system relies on modern WebExtension APIs to interact with browser functionalities:
+
+Tabs API: Used to monitor active tabs and track website usage duration.
+
+Storage API: Used to store user data locally, including browsing history summaries and productivity statistics.
+
+Alarms API: Used to schedule periodic updates for tracking and analytics calculations.
+
+Web Navigation API: Used to detect navigation events and update tracking information in real time.
+
+Content Scripts: Used for injecting scripts into web pages to monitor user activity and display focus mode notifications.
+
+These APIs are essential for enabling real-time tracking and behavioural intervention within the browser environment.
+
+Data Visualisation Libraries
+
+To present browsing data in an understandable format, the system uses:
+
+Chart.js: A lightweight JavaScript library used to generate interactive charts such as bar graphs and pie charts for productivity analytics.
+
+Data visualisation is a key component of the system, as it converts raw usage data into meaningful insights that support user decision-making.
+
+Development Tools
+
+The following tools are used during development and testing:
+
+Visual Studio Code: Primary development environment for coding and debugging.
+
+Google Chrome Developer Tools: Used for testing, debugging, and performance monitoring of the extension.
+
+Git & GitHub: Used for version control and collaborative development.
+
+Node.js (optional): Used for package management and development utilities where required.
+
+Justification of Technology Choice
+
+The selected technology stack is appropriate for this project because browser extensions require lightweight, efficient, and secure client-side execution. JavaScript-based technologies are natively supported by all modern browsers, making them ideal for cross-platform compatibility. Additionally, the use of WebExtension APIs ensures standardised access to browser features without relying on external servers, aligning with the system’s privacy-focused design.
+
+The inclusion of Chart.js supports the requirement for clear and interactive data visualisation, which is essential for improving user awareness of digital behaviour. Overall, the chosen technologies provide a balance between performance, simplicity, and extensibility, making them suitable for developing a scalable and privacy-preserving productivity tool.
+
+3.5 System Architecture and Data Flow
+
+The Tab Time browser extension follows a modular client-side architecture designed to ensure separation of concerns, maintainability, and efficient real-time processing. The system is structured into distinct layers that handle data collection, processing, storage, and presentation within the browser environment. This architecture is essential for supporting continuous time tracking and behavioural analytics without affecting browser performance.
+
+3.5.1 System Architecture Overview
+
+The system is divided into three main layers:
+
+Presentation Layer:This layer includes the user interface components such as the dashboard, popup window, settings page, and focus mode interface. It is responsible for displaying analytics, charts, and user controls in a clear and interactive manner.
+
+Logic Layer (Business Layer):This layer handles the core functionality of the system, including time tracking calculations, website categorisation, productivity scoring, and focus session management. It processes raw data received from browser events and converts it into meaningful insights.
+
+Data Layer:This layer is responsible for storing all user-related data locally using browser storage mechanisms such as Local Storage and IndexedDB. It ensures persistence of browsing statistics, session history, and user preferences.
+
+Figure 4: Three-layer architecture of Tab Time
+
+3.5.2 Data Flow Description
+
+The data flow within the system follows a continuous cycle of monitoring, processing, and feedback:
+
+When a user opens or switches to a browser tab, the Tabs API captures the active tab information.
+
+The tracking engine records the timestamp and URL of the active website.
+
+The system calculates time spent on each website by measuring active duration between tab switches or idle events.
+
+Collected data is passed to the logic layer, where it is categorised into productivity groups based on predefined rules.
+
+Aggregated data is stored locally in the data layer for persistence and future analysis.
+
+The analytics module processes stored data to generate summaries, charts, and productivity scores.
+
+The processed results are displayed in the dashboard interface, providing users with real-time insights into their browsing behaviour.
+
+During focus sessions, the system intercepts navigation requests and triggers content scripts to block or restrict access to distracting websites.
+
+Figure 5: Tab Time data flow and tracking logic
+
+3.6 Tracking Logic and Analytics Processing
+
+The core functionality of the Tab Time browser extension is built around accurate time tracking and meaningful transformation of raw browsing data into productivity insights. This section explains how user activity is captured, processed, and converted into analytics that support digital wellbeing and behavioural awareness.
+
+3.6.1 Time Tracking Mechanism
+
+The system continuously monitors user activity within the browser using WebExtension APIs, primarily focusing on tab switching, active window detection, and navigation events. When a user opens or switches to a tab, the system records a timestamp and associates it with the current URL.
+
+Time spent on a website is calculated by measuring the difference between the active start time and the moment the user switches to another tab or becomes inactive. This approach ensures near real-time tracking without requiring manual input from the user.
+
+To improve accuracy, the system also considers idle detection. If the user is inactive for a defined threshold period, the tracking session is paused to avoid inflating usage statistics.
+
+3.6.2 Website Categorisation Logic
+
+Each visited website is assigned to a predefined category such as productive, educational, social, or entertainment. This categorisation is based on a rule-based mapping system using domain matching (e.g., social media domains mapped to “social” category).
+
+Users may also customise categories manually, allowing flexibility in defining what is considered productive based on individual needs. This ensures that the system remains adaptable rather than enforcing a rigid classification model.
+
+3.6.3 Productivity Scoring Algorithm
+
+The system generates a productivity score by analysing time distribution across different website categories. Time spent on productive categories contributes positively to the score, while time spent on distracting categories reduces the overall value.
+
+Although the scoring mechanism is rule-based in this implementation, it provides a simplified behavioural indicator that helps users understand their browsing efficiency over time.
+
+3.6.4 Analytics Processing and Aggregation
+
+Raw tracking data is periodically processed using scheduled background tasks. The system aggregates data into daily and weekly summaries, calculating metrics such as:
+
+Total browsing time per day
+
+Time spent per category
+
+Most visited websites
+
+Productivity score trends over time
+
+These aggregated results are stored locally and used to generate visual dashboards using charting libraries. The transformation from raw logs to structured analytics is essential for improving user understanding and supporting behavioural change.
+
+3.7 Ethical, Legal, and Professional Considerations
+
+3.7.1 Privacy and Data Protection
+
+A primary ethical concern in this project is the collection and processing of browsing activity data. Although the system does not transmit data to external servers, it still processes potentially sensitive information locally. To address this, the system follows a privacy-by-design approach, ensuring that all data is stored and processed within the user’s device using browser storage mechanisms.
+
+Users are provided with full control over their data, including the ability to reset tracking history, modify categories, and disable tracking features. This aligns with modern data protection principles that emphasise user autonomy and transparency (European Union, 2016).
+
+3.7.2 User Consent and Transparency
+
+Ethical software development requires that users are fully informed about what data is being collected and how it is used. In the context of Tab Time, users must explicitly enable tracking features before any data collection begins. Clear in-app notifications and settings explanations are provided to ensure transparency.
+
+This approach supports informed consent, which is a key principle in ethical computing and user-centred design practices.
+
+3.7.3 Legal Considerations
+
+From a legal perspective, the system is designed to align with general data protection regulations such as the General Data Protection Regulation (GDPR), particularly in relation to data minimisation and purpose limitation. Although the system does not operate in a cloud environment, adhering to these principles ensures that the design remains compliant with widely accepted international standards.
+
+Additionally, the system avoids collecting personally identifiable information (PII), focusing only on anonymised behavioural data such as domain names and time intervals.
+
+Chapter 4: System Design and Implementation
+
+4.1 Introduction
+
+This chapter focuses on the detailed design and implementation of the Tab Time browser extension. The purpose of this chapter is to translate the system requirements and architecture described in Chapter 3 into concrete design solutions and to explain how these solutions were implemented to achieve the project objectives.
+
+The chapter covers the modular system design, user interface structure, core tracking engine, focus mode functionality, and data visualisation components. It also provides insights into implementation challenges, design decisions, and strategies used to maintain system performance, usability, and privacy.
+
+By bridging the conceptual architecture and practical implementation, this chapter demonstrates how the theoretical framework of time tracking, productivity scoring, and distraction management has been converted into a functional and user-friendly browser extension.
+
+4.2 Module Design and Functional Components
+
+The Tab Time browser extension is structured into independent but interconnected modules to ensure maintainability, scalability, and clear separation of responsibilities. Each module is responsible for a specific set of functionalities, allowing the system to operate efficiently within the constraints of browser-based environments.
+
+4.2.1 Tracking Module
+
+The Tracking Module is the core component of the system and is responsible for monitoring user browsing activity in real time. It captures active tab changes, URL navigation events, and session durations using browser APIs.
+
+This module ensures that:
+
+Active website time is recorded accurately
+
+Tab switching events are logged immediately
+
+Idle time is detected and excluded from calculations
+
+The collected data is then forwarded to the processing layer for categorisation and analysis.
+
+4.2.2 Analytics Module
+
+The Analytics Module processes raw tracking data and converts it into meaningful insights. It aggregates browsing sessions into daily and weekly summaries and calculates productivity-related metrics.
+
+Key functions include:
+
+Aggregating time spent per website
+
+Calculating category-based usage distribution
+
+Generating productivity scores
+
+Preparing structured datasets for visualization
+
+This module acts as the analytical engine of the system, transforming raw logs into interpretable information.
+
+Figure 6: Analytics data transformation pipeline
+
+4.2.3 Dashboard Module
+
+The Dashboard Module provides the main user interface for visualising productivity data. It presents analytics in an accessible format using charts, graphs, and summary cards.
+
+The dashboard includes:
+
+Daily and weekly usage summaries
+
+Category-wise time distribution charts
+
+Productivity score display
+
+Most visited websites overview
+
+This module is designed using HCI principles to ensure clarity, simplicity, and ease of interpretation.
+
+4.2.4 Focus Mode Module
+
+The Focus Mode Module is responsible for behavioural intervention by restricting access to distracting websites during user-defined sessions. When activated, it enforces website blocking rules and monitors session duration.
+
+Key features include:
+
+User-defined focus session timer
+
+Custom blocklist management
+
+Real-time website blocking enforcement
+
+Notification alerts for blocked access attempts
+
+This module supports the system’s primary goal of reducing digital distractions and improving concentration.
+
+4.2.5 Storage Module
+
+The Storage Module handles all local data persistence within the browser. It ensures that user data such as browsing history summaries, category settings, and productivity scores are saved securely.
+
+It uses:
+
+Browser Local Storage for lightweight data
+
+IndexedDB for structured and larger datasets
+
+This ensures data persistence even after browser restarts while maintaining a privacy-first approach.
+
+4.3 User Interface Design
+
+The user interface (UI) of the Tab Time browser extension is designed with a strong focus on simplicity, clarity, and usability. Since the system deals with behavioural data and productivity insights, the interface must present complex information in an easily understandable format without overwhelming the user. The design follows Human-Computer Interaction (HCI) principles, particularly consistency, minimal cognitive load, and clear visual hierarchy.
+
+4.3.1 Design Principles
+
+The UI design is guided by the following principles:
+
+Simplicity: The interface avoids unnecessary complexity and presents only essential information such as time usage, productivity scores, and focus controls.
+
+Clarity: Data is visualised using charts and summaries to make interpretation easier.
+
+Consistency: Similar components such as cards, buttons, and graphs follow a uniform design structure across all modules.
+
+Feedback: Users receive immediate visual feedback when activating focus mode or updating settings.
+
+These principles ensure that users can interact with the system efficiently and without confusion.
+
+4.3.2 Dashboard Interface Design
+
+The dashboard serves as the main interface of the system and provides an overview of user browsing behaviour. It is structured into clearly defined sections:
+
+Productivity summary panel (overall score display)
+
+Time distribution charts (daily and weekly views)
+
+Category-based usage breakdown
+
+Frequently visited websites section
+
+The layout is designed using a grid-based structure to ensure responsiveness and readability across different screen sizes.
+
+4.3.3 Focus Mode Interface
+
+The Focus Mode interface allows users to activate distraction-free sessions. It includes a simple control panel where users can:
+
+Start or stop focus sessions
+
+Set session duration
+
+Manage blocked websites list
+
+During an active session, the interface provides a minimal display showing remaining time and session status to reduce distraction.
+
+4.3.4 Popup Interface Design
+
+The extension popup provides quick access to essential features without opening the full dashboard. It displays:
+
+Current session time
+
+Quick productivity snapshot
+
+Shortcut buttons for dashboard and focus mode
+
+This ensures that users can access key functionalities with minimal effort.
+
+4.4 Implementation of Core Features
+
+This section explains how the main functionalities of the Tab Time browser extension were implemented in practice. The implementation focuses on translating the designed modules into working features using JavaScript-based browser extension technologies and WebExtension APIs. Each feature was developed in a modular manner to ensure separation of concerns and ease of maintenance.
+
+4.4.1 Time Tracking Implementation
+
+The time tracking feature is implemented using browser tab and navigation event listeners. The system continuously monitors the active tab and records timestamps whenever a user switches between tabs or windows.
+
+The basic logic follows a session-based approach:
+
+When a tab becomes active, a start timestamp is recorded
+
+When the tab changes, the time difference is calculated
+
+The duration is then added to the corresponding website entry
+
+Idle detection is used to pause tracking when no user activity is detected
+
+This ensures that only active engagement time is recorded, improving the accuracy of usage statistics.
+
+4.4.2 Website Categorisation Implementation
+
+Website categorisation is implemented using a rule-based mapping system. Each URL is matched against a predefined set of domain patterns to determine its category.
+
+For example:
+
+Social media domains → Social category
+
+Educational websites → Productive category
+
+Entertainment platforms → Leisure category
+
+Users can also override default categories through a settings interface, allowing personalised classification of websites.
+
+This implementation ensures flexibility while maintaining a structured classification system for analytics generation.
+
+4.4.3 Productivity Scoring Implementation
+
+The productivity score is calculated based on weighted time distribution across categories. Each category is assigned a weight reflecting its productivity impact.
+
+A simplified logic is applied:
+
+Productive categories increase the score
+
+Neutral categories maintain balance
+
+Distracting categories reduce the score
+
+The final score is normalised into a percentage format to make it easily understandable for users.
+
+This approach provides a high-level indicator of user productivity trends over time.
+
+4.4.4 Focus Mode Implementation
+
+Focus Mode is implemented using a combination of blocklists and real-time URL interception. When a focus session is active:
+
+The system checks each navigation request against the blocklist
+
+If a match is found, the request is blocked
+
+A custom notification page is displayed instead
+
+The system also uses a timer mechanism to track session duration and automatically disables blocking once the session ends.
+
+This ensures strict enforcement of focus rules while maintaining user control.
+
+4.4.5 Data Storage Implementation
+
+All user data is stored locally using browser storage APIs. Two storage methods are used:
+
+Local Storage: For lightweight settings such as user preferences and configuration data
+
+IndexedDB: For structured time tracking logs and historical analytics data
+
+Data is periodically updated to ensure persistence and consistency across sessions without relying on external servers.
+
+4.5 Testing and Validation Approach
+
+The testing and validation process for the Tab Time browser extension is designed to ensure that all implemented features function correctly, efficiently, and consistently across different usage scenarios. Since the system relies on real-time browser activity tracking and user interaction, thorough testing is essential to verify accuracy, performance, and reliability.
+
+4.5.1 Unit Testing
+
+Unit testing is used to validate individual components of the system in isolation. Each module, such as time tracking, categorisation, and productivity scoring, is tested independently to ensure correct logic execution.
+
+Key areas covered in unit testing include:
+
+Verification of time calculation accuracy for tab switching events
+
+Validation of website categorisation rules and overrides
+
+Correct computation of productivity scores based on weighted categories
+
+Storage and retrieval of data from Local Storage and IndexedDB
+
+This level of testing ensures that each functional unit behaves as expected before integration.
+
+4.5.2 Integration Testing
+
+Integration testing focuses on verifying that different modules work together correctly. This is particularly important for Tab Time, as the system depends on interaction between tracking, analytics, and user interface components.
+
+Key integration scenarios include:
+
+Flow of tracking data into the analytics module
+
+Synchronisation between storage and dashboard updates
+
+Communication between focus mode and navigation blocking system
+
+Real-time update of UI when new data is recorded
+
+This ensures that data consistency is maintained across the system.
+
+4.5.3 System Testing
+
+System testing evaluates the complete browser extension as a fully integrated product. The focus is on validating overall functionality, usability, and performance in real-world scenarios.
+
+The system is tested for:
+
+Continuous time tracking during extended browsing sessions
+
+Accurate blocking of websites during active focus mode
+
+Responsiveness of dashboard and analytics visualisations
+
+Stability during multiple tab and window operations
+
+This ensures that the system performs reliably under normal user conditions.
+
+4.5.4 Validation Approach
+
+Validation is carried out to assess whether the system meets its intended objectives of improving digital wellbeing and productivity awareness. This involves comparing expected outcomes with actual system behaviour.
+
+The validation approach includes:
+
+Checking whether users can clearly understand productivity insights from visual dashboards
+
+Evaluating the effectiveness of focus mode in reducing distractions
+
+Observing improvements in user awareness of browsing habits through analytics feedback
+
+Although formal large-scale user studies are outside the scope of this academic project, validation is supported through controlled testing scenarios and simulated user behaviour patterns.
+
+Chapter 5: Testing, Evaluation and Results
+
+5.1 Introduction
+
+This chapter presents the testing, evaluation, and analysis of results for the Tab Time browser extension to determine whether the system successfully achieves its objectives of improving digital awareness, enhancing productivity, and reducing distractions through focus management features. The evaluation focuses on both functional performance and behavioural effectiveness by testing components such as time tracking, website categorisation, analytics generation, and focus mode functionality, while also assessing usability and user experience. In addition, the chapter examines how real-time feedback and website blocking influence user behaviour and time management, providing an overall assessment of the system’s effectiveness and identifying areas for future improvement.
+
+5.2 Testing Strategy and Methodology
+
+The testing strategy for the Tab Time browser extension is designed to evaluate both the functional performance of the system and its effectiveness in promoting digital wellbeing and productivity awareness. A combination of functional testing, usability evaluation, and behavioural validation is employed to ensure comprehensive assessment.
+
+Figure 7: Testing strategy and evaluation overview (Tab Time
+
+5.2.1 Functional Testing
+
+Functional testing focuses on verifying that each feature of the extension works correctly according to the system requirements. Key aspects tested include:
+
+Time Tracking Accuracy: Ensuring that the duration spent on active tabs is measured precisely and that idle periods are not counted.
+
+Website Categorisation: Validating that URLs are correctly assigned to predefined productivity categories, and user overrides are applied accurately.
+
+Analytics Module: Ensuring correct calculation of productivity scores and accurate representation in charts and graphs.
+
+Focus Mode Enforcement: Testing that blocking rules are applied correctly and session timers function as expected.
+
+Data Storage Reliability: Confirming that browsing data is correctly stored and retrieved from Local Storage and IndexedDB.
+
+Test cases are executed using both manual scenarios and automated scripts to ensure reproducibility and accuracy of results.
+
+5.2.2 Usability Evaluation
+
+Usability evaluation is conducted to assess how effectively users can interact with the extension and interpret its outputs. This includes:
+
+Ease of navigation through the dashboard and analytics pages
+
+Clarity of visualizations and productivity summaries
+
+Accessibility of focus mode controls and notifications
+
+Responsiveness of the extension interface during multi-tab usage
+
+Feedback is gathered from a small sample of controlled users (simulated browsing behaviour) to identify potential improvements in the interface and interaction design.
+
+5.2.3 Behavioural Validation
+
+Behavioural validation assesses whether the extension effectively influences user behaviour in terms of awareness and productivity. This involves:
+
+Monitoring simulated usage to observe changes in browsing patterns during focus sessions
+
+Comparing time spent on productive versus non-productive websites before and after intervention
+
+Evaluating whether the productivity scoring system reflects realistic engagement patterns
+
+These observations provide preliminary evidence of the extension’s impact on digital habits and time management.
+
+5.3 Results and Observations
+
+This section presents the outcomes obtained from testing the Tab Time browser extension. The results are analysed based on functional performance, usability feedback, and behavioural patterns observed during controlled usage scenarios. The aim is to determine whether the system performs as intended and whether it effectively supports improved digital awareness and productivity.
+
+5.3.1 Functional Performance Results
+
+The functional testing results indicate that the core modules of the system operate as expected under normal browser usage conditions. Time tracking successfully recorded active tab durations with consistent accuracy, and idle detection prevented unnecessary inflation of usage statistics. Website categorisation was correctly applied based on predefined rules, with user-defined overrides functioning as intended.
+
+The analytics module successfully aggregated raw browsing data into meaningful summaries, including daily usage totals and category-based distributions. Focus mode enforcement was also effective in blocking restricted websites during active sessions, displaying appropriate notifications when access attempts were made.
+
+5.3 Results and Observations
+
+This section presents the outcomes obtained from testing the Tab Time browser extension. The results are analysed based on functional performance, usability feedback, and behavioural patterns observed during controlled usage scenarios. The aim is to determine whether the system performs as intended and whether it effectively supports improved digital awareness and productivity.
+
+5.3.1 Functional Performance Results
+
+The functional testing results indicate that the core modules of the system operate as expected under normal browser usage conditions. Time tracking successfully recorded active tab durations with consistent accuracy, and idle detection prevented unnecessary inflation of usage statistics. Website categorisation was correctly applied based on predefined rules, with user-defined overrides functioning as intended.
+
+The analytics module successfully aggregated raw browsing data into meaningful summaries, including daily usage totals and category-based distributions. Focus mode enforcement was also effective in blocking restricted websites during active sessions, displaying appropriate notifications when access attempts were made.
+
+5.4 Discussion of Findings
+
+The findings from the testing and evaluation phase indicate that the Tab Time browser extension is generally effective in achieving its intended objectives of improving digital awareness and supporting productivity management. The results show that integrating time tracking, visual analytics, and focus management into a single system provides users with a more comprehensive understanding of their browsing behaviour compared to traditional standalone tools. In particular, real-time time tracking was found to improve behavioural awareness, as users could clearly see the amount of time spent on different websites, encouraging self-reflection and better decision-making. This aligns with research which suggests that self-monitoring is a key factor in behaviour change within digital environments (Baumeister and Vohs, 2016). Additionally, visual analytics played an important role in improving understanding, as charts and graphical representations were more effective than numerical data in helping users interpret usage patterns (Few, 2012).
+
+Focus mode functionality also demonstrated strong short-term effectiveness in reducing distractions, as website blocking successfully limited access to predefined distracting sites during focused sessions. However, strict blocking was observed to reduce flexibility in some cases, suggesting the need for more adaptive approaches. Despite these positive outcomes, limitations were identified, particularly in the rule-based categorisation system, which may not always reflect user intent accurately. Furthermore, behavioural improvements were mainly observed in short-term scenarios, indicating the need for longer-term evaluation. Overall, the results suggest that Tab Time is effective in improving digital awareness and short-term productivity, but future enhancements such as adaptive categorisation and long-term behavioural modelling could further strengthen its effectiveness.
+
+Chapter 6: Conclusion and Future Work
+
+6.1 Conclusion of the Project
+
+The Tab Time browser extension project successfully achieved its primary objective of developing a unified system that supports time awareness, focus management, and digital wellbeing. The system was designed and implemented to address the growing issue of digital distraction caused by excessive and unstructured web usage, particularly in browser environments where users frequently switch between productive and non-productive activities.
+
+Throughout the development process, the system demonstrated the effective integration of key functionalities, including real-time time tracking, website categorisation, productivity analytics, and focus mode enforcement. These features collectively enabled users to gain a clearer understanding of their browsing behaviour and take proactive steps toward improving productivity.
+
+The evaluation results confirmed that the system performs reliably in tracking user activity and presenting meaningful insights through visual dashboards. Additionally, the focus mode feature proved effective in reducing distractions during controlled sessions, reinforcing the system’s role as a behavioural intervention tool rather than a passive monitoring application.
+
+From a broader perspective, the project highlights the importance of combining Human-Computer Interaction principles with software engineering practices to develop tools that not only function correctly but also positively influence user behaviour. The emphasis on privacy through local data processing further strengthens the system’s practicality and ethical alignment.
+
+Overall, the project can be considered successful in meeting its intended aims and objectives, while also providing a foundation for further enhancements in digital wellbeing technologies.
+
+6.4 Future Work and Enhancements
+
+The Tab Time browser extension provides a strong foundation for digital wellbeing and productivity tracking; however, several improvements can be considered to enhance its functionality, accuracy, and scalability for real-world use. These future enhancements are summarised as follows:
+
+Machine Learning Integration:Introduce machine learning-based behavioural analysis to replace rule-based categorisation, allowing the system to adapt dynamically to user behaviour and improve productivity scoring accuracy.
+
+Cross-Device Synchronisation:Enable optional secure cloud-based synchronisation so users can track productivity across multiple devices while maintaining privacy controls.
+
+Advanced Visual Analytics:Implement predictive analytics and behavioural trend forecasting to help users understand future productivity patterns based on historical data.
+
+Adaptive Focus Mode:Improve focus mode by introducing adaptive blocking rules that adjust based on user behaviour, time of day, and productivity goals.
+
+Extended User Evaluation:Conduct long-term user studies with larger sample sizes to better evaluate sustained behavioural change and overall system effectiveness.
+
+Reference List (Harvard Style)
+
+Baumeister, R.F. and Vohs, K.D., 2016. Strength model of self-regulation as limited resource: Assessment, controversies, update. Advances in Experimental Social Psychology, 54, pp.67–127.
+
+Chin, E., Felt, A.P., Greenwood, K. and Wagner, D., 2018. Analyzing inter-extension security risks in browser extensions. IEEE Symposium on Security and Privacy, pp.617–634.
+
+Cirillo, F., 2018. The Pomodoro Technique: The Acclaimed Time-Management System That Has Transformed How We Work. New York: Currency.
+
+Few, S., 2012. Show Me the Numbers: Designing Tables and Graphs to Enlighten. 2nd ed. Burlingame, CA: Analytics Press.
+
+González, V.M., Mark, G. and Leigh, C., 2013. Understanding and measuring the cost of interruption in knowledge work. Information Technology & People, 26(3), pp.264–279.
+
+Mark, G., Gudith, D. and Klocke, U., 2008. The cost of interrupted work: More speed and stress. Proceedings of the SIGCHI Conference on Human Factors in Computing Systems (CHI ’08), pp.107–110.
+
+Mozilla Developer Network, 2024. WebExtensions API documentation. Available at: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions [Accessed 23 May 2026].
+
+Mozilla Developer Network, 2024. Extension security best practices. Available at: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Security_best_practices [Accessed 23 May 2026].
+
+Montag, C. and Reuter, M., 2020. Digital phenotyping and mobile sensing: New perspectives for digital wellbeing research. Springer Nature.
+
+Pielot, M., Church, K. and de Oliveira, R., 2018. An in-situ study of mobile phone notifications and attentional demand. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2(4), pp.1–23.
+
+Pinder, C., Vermeulen, J., Cowan, B.R. and Inkpen, K., 2018. A field study of real-time feedback for digital behaviour change. Proceedings of the ACM on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2(3), pp.1–23.
+
+RescueTime, 2024. Automatic time tracking and productivity analytics. Available at: https://www.rescuetime.com [Accessed 23 May 2026].
+
+StayFocusd, 2024. Website blocker for productivity. Available at: https://www.stayfocusd.com [Accessed 23 May 2026].
+
+Freedom, 2024. Block distractions across all devices. Available at: https://freedom.to [Accessed 23 May 2026].
+
+W3C, 2023. WebExtensions Community Group Specifications. Available at: https://www.w3.org/community/webextensions/ [Accessed 23 May 2026].
+
+Zuboff, S., 2019. The Age of Surveillance Capitalism: The Fight for a Human Future at the New Frontier of Power. New York: PublicAffairs.

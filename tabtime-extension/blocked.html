@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus Session Active - Tab Time</title>
+  <link rel="stylesheet" href="blocked.css">
+</head>
+<body>
+  <div class="holding-card">
+    <div class="shield-icon">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#673AB7" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    </div>
+    <h1>Stay in Your Flow</h1>
+    <p class="subtitle">
+      Access to <strong id="blocked-target-domain">this website</strong> is currently paused to protect your deep focus.
+    </p>
+
+    <div class="timer-box">
+      <span class="timer-label">FOCUS SESSION REMAINING:</span>
+      <div id="focus-countdown-display" class="timer-digits">25:00</div>
+    </div>
+
+    <div class="quote-box">
+      <p>"Deep work is the ability to focus without distraction on a cognitively demanding task."</p>
+      <span>— Cal Newport, Deep Work</span>
+    </div>
+
+    <div class="button-group">
+      <button id="return-work-btn" class="btn btn-primary">Return to Productive Work</button>
+      <button id="open-dashboard-btn" class="btn btn-secondary">View Tab Time Dashboard</button>
+    </div>
+  </div>
+
+  <script src="blocked.js" type="module"></script>
+</body>
+</html>

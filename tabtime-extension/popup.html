@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Time</title>
+  <link rel="stylesheet" href="popup.css">
+  <script src="libs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <img src="icons/icon32.png" alt="Tab Time Logo" class="logo-img">
+        <div class="logo-text">
+          <h1>Tab Time</h1>
+          <span id="tracking-status" class="live-status" role="status">Checking tracking status…</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="open-dashboard-btn" class="icon-btn" title="Open Full Dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
+        </button>
+        <button id="open-settings-btn" class="icon-btn" title="Settings">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="privacy-card" aria-label="Tracking controls">
+      <p>Website names and active time stay on this device. Tracking starts when you enable it. Private windows and page contents are excluded.</p>
+      <button id="toggle-tracking-btn" class="btn btn-primary">Enable tracking</button>
+    </section>
+    <p id="popup-error" class="error-message" role="alert" hidden></p>
+
+    <!-- Active Tab Banner -->
+    <div class="active-tab-banner">
+      <div class="tab-domain-info">
+        <span class="active-label">CURRENT TAB:</span>
+        <span id="current-domain" class="current-domain">Loading...</span>
+      </div>
+      <span id="current-category-badge" class="badge badge-neutral">Neutral</span>
+    </div>
+
+    <!-- Summary Metrics Grid -->
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <span class="metric-label">Today's Active Time</span>
+        <div id="today-time" class="metric-value">0h 00m</div>
+      </div>
+      <div class="metric-card">
+        <span class="metric-label">Productivity Score</span>
+        <div id="today-score" class="metric-value text-productive">-- %</div>
+      </div>
+    </div>
+
+    <!-- Category Breakdown Chart -->
+    <div class="chart-section">
+      <div class="chart-header">
+        <h2>Today's Category Breakdown</h2>
+      </div>
+      <div class="chart-wrapper">
+        <canvas id="todayCategoryChart" role="img" aria-label="Today's time by category" aria-describedby="chart-summary"></canvas>
+      </div>
+      <p id="chart-empty" class="empty-message">No activity recorded today. Enable tracking and browse to get started.</p>
+      <p id="chart-summary" class="sr-only"></p>
+    </div>
+
+    <!-- Focus Mode Action Card -->
+    <div class="focus-card">
+      <div class="focus-header">
+        <div class="focus-title">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#673AB7" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Focus Mode</span>
+        </div>
+        <span id="focus-status-badge" class="badge badge-idle">Ready</span>
+      </div>
+      <div id="focus-countdown" class="focus-countdown hidden">25:00</div>
+      <button id="toggle-focus-btn" class="btn btn-primary">Start 25m Focus Session</button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <button id="view-dashboard-link" class="link-btn">Open Full Analytics Dashboard &rarr;</button>
+    </footer>
+  </div>
+
+  <script src="popup.js" type="module"></script>
+</body>
+</html>

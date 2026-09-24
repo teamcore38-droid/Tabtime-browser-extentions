@@ -1,0 +1,19 @@
+{
+  "browserVersion": "151.0.7922.47",
+  "checks": [
+    "Fresh install starts paused with zero history",
+    "Headless Chromium idle state is handled without collecting background time",
+    "Consent state is persisted and popup totals read local history",
+    "History contains hostname and time without URL paths or queries",
+    "Pause freezes recorded time",
+    "Actual Chromium worker termination recovers saved state",
+    "Real IndexedDB migration preserves v1 records and rebuilds summaries",
+    "Duplicate write aborts atomically without changing summary or checkpoint",
+    "History deletion clears sessions, summaries and checkpoint",
+    "Existing focus controls create and remove domain rules",
+    "Dashboard displays recorded local fixture instead of fabricated sites",
+    "Extension Content Security Policy blocks outbound fetch",
+    "Purge stays empty and leaves tracking paused"
+  ],
+  "pageErrors": []
+}

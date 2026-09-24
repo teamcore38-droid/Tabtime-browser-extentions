@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Time - Visual Productivity Analytics Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="libs/chart.umd.js"></script>
+</head>
+<body>
+  <div class="dashboard-layout">
+    <!-- Navigation / Top Header -->
+    <header class="top-nav">
+      <div class="brand">
+        <img src="icons/icon48.png" alt="Tab Time Logo" class="brand-logo">
+        <div>
+          <h1>Tab Time</h1>
+          <p class="brand-subtitle">Visual Productivity Analytics & Focus Management</p>
+        </div>
+      </div>
+      <div class="nav-controls">
+        <div class="time-filter-pills">
+          <button class="pill-btn active" data-range="today">Today</button>
+          <button class="pill-btn" data-range="week">Last 7 Days</button>
+          <button class="pill-btn" data-range="month">Last 30 Days</button>
+        </div>
+        <button id="export-json-btn" class="btn-secondary">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export Data (JSON)
+        </button>
+        <button id="settings-nav-btn" class="btn-secondary" title="Extension Settings">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Content Body -->
+    <main class="dashboard-content">
+      <!-- 4 Top KPI Metric Cards -->
+      <section class="kpi-grid">
+        <div class="kpi-card">
+          <span class="kpi-title">Total Active Browsing</span>
+          <div id="kpi-total-time" class="kpi-value">--</div>
+          <span class="kpi-hint">Tracked client-side (idle excluded)</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-title">Productivity Score</span>
+          <div id="kpi-score" class="kpi-value text-productive">--%</div>
+          <span id="kpi-score-badge" class="kpi-hint">Target: > 75% Productive</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-title">Most Used Site</span>
+          <div id="kpi-top-site" class="kpi-value">--</div>
+          <span id="kpi-top-time" class="kpi-hint">--</span>
+        </div>
+
+        <div class="kpi-card">
+          <span class="kpi-title">Distraction Time</span>
+          <div id="kpi-distract-time" class="kpi-value text-distraction">--</div>
+          <span id="kpi-distract-pct" class="kpi-hint">Social & Entertainment</span>
+        </div>
+      </section>
+
+      <!-- Charts Section: Two Column Grid -->
+      <section class="charts-grid">
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Time Trends (Category Stacked Breakdown)</h3>
+            <span class="chart-tag">Hours Spent</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="weeklyBarChart"></canvas>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-header">
+            <h3>Overall Category Distribution</h3>
+            <span class="chart-tag">Percentage %</span>
+          </div>
+          <div class="chart-container-large">
+            <canvas id="categoryDonutChart"></canvas>
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Visited Sites Table -->
+      <section class="table-card">
+        <div class="table-header">
+          <h3>Top Visited Websites & Categories</h3>
+          <span class="table-subtitle">Click category badge to quickly re-classify any domain</span>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Domain Name</th>
+                <th>Category</th>
+                <th>Active Time</th>
+                <th>% of Total</th>
+                <th>Quick Actions</th>
+              </tr>
+            </thead>
+            <tbody id="sites-table-body">
+              <tr>
+                <td colspan="5" style="text-align: center; color: #888;">Loading session logs...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="dashboard.js" type="module"></script>
+</body>
+</html>

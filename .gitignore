@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary and lock files
+*.tmp
+~$*.docx
+~$*.pptx
+
+# Build and inspection caches
+.ppt-build-inspect/
+*.ndjson
+
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

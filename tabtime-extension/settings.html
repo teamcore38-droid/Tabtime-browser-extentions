@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tab Time - Settings & Rules Manager</title>
+  <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+  <div class="settings-layout">
+    <!-- Header -->
+    <header class="settings-header">
+      <div class="brand">
+        <img src="icons/icon48.png" alt="Tab Time Logo" class="brand-logo">
+        <div>
+          <h1>Tab Time Settings</h1>
+          <p class="brand-subtitle">Configure domain category mappings, focus blocklists, and privacy controls</p>
+        </div>
+      </div>
+      <button id="back-dashboard-btn" class="btn-secondary">
+        &larr; Back to Dashboard
+      </button>
+    </header>
+
+    <main class="settings-content">
+      <!-- Section 1: Domain Categorization Rules -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Domain Categorization Rules</h2>
+          <p>Customize how specific websites are categorized for productivity scoring</p>
+        </div>
+
+        <div class="add-rule-bar">
+          <input type="text" id="new-domain-input" placeholder="e.g. stackoverflow.com" class="input-text">
+          <select id="new-category-select" class="select-box">
+            <option value="Productive">Productive</option>
+            <option value="Educational">Educational</option>
+            <option value="Social">Social</option>
+            <option value="Entertainment">Entertainment</option>
+            <option value="Neutral">Neutral</option>
+          </select>
+          <button id="add-rule-btn" class="btn-primary">Add Rule</button>
+        </div>
+
+        <div class="rules-list-container">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Assigned Category</th>
+                <th style="width: 80px; text-align: center;">Action</th>
+              </tr>
+            </thead>
+            <tbody id="rules-tbody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Focus Mode Blocklist -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Focus Mode Distraction Blocklist</h2>
+          <p>These domains will be automatically redirected to the holding page during active Focus Sessions</p>
+        </div>
+
+        <div class="add-rule-bar">
+          <input type="text" id="new-block-domain" placeholder="e.g. reddit.com" class="input-text">
+          <button id="add-block-btn" class="btn-primary">Add to Blocklist</button>
+        </div>
+
+        <div class="blocklist-chips" id="blocklist-chips-container">
+          <!-- Dynamically populated -->
+        </div>
+      </section>
+
+      <!-- Section 3: Data Management & Privacy -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Privacy & Data Controls</h2>
+          <p>100% of your browsing telemetry is stored locally in your browser's IndexedDB</p>
+        </div>
+
+        <div class="data-actions-grid">
+          <div class="action-box">
+            <h4>Backup History</h4>
+            <p>Download all your local session records as a structured JSON file.</p>
+            <button id="settings-export-btn" class="btn-secondary">Export JSON Backup</button>
+          </div>
+          <div class="action-box danger-box">
+            <h4>Purge Local Data</h4>
+            <p>Delete tracking history, pause tracking, and end focus mode. Your category rules and blocklist are kept.</p>
+            <button id="settings-purge-btn" class="btn-danger">Clear Tracking History</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="settings.js" type="module"></script>
+</body>
+</html>

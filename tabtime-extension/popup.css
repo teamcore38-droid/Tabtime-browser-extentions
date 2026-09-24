@@ -1,0 +1,319 @@
+/* Tab Time - Popup Stylesheet (Clean Modern Aesthetic) */
+.privacy-card { padding: 10px; border: 1px solid #D7DFEF; border-radius: 10px; background: #EFF4FC; }
+.privacy-card p { color: #36465C; font-size: 12px; line-height: 1.5; margin-bottom: 10px; }
+.empty-message { color: #536173; font-size: 11px; line-height: 1.5; margin-top: 8px; }
+.error-message { color: #A51D23; background: #FFF0F0; padding: 10px; font-size: 12px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+button:focus-visible { outline: 3px solid #1565C0; outline-offset: 2px; }
+button:disabled { opacity: .6; cursor: wait; }
+:root {
+  --primary: #1A237E;
+  --primary-light: #283593;
+  --accent: #673AB7;
+  --accent-light: #EDE7F6;
+  --productive: #2E7D32;
+  --educational: #1565C0;
+  --social: #E65100;
+  --entertainment: #C2185B;
+  --neutral: #607D8B;
+  --bg-color: #F8F9FD;
+  --card-bg: #FFFFFF;
+  --text-main: #212121;
+  --text-muted: #757575;
+  --border-color: #E0E4EC;
+  --radius: 10px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  width: 390px;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-size: 13px;
+  overflow-x: hidden;
+}
+
+.popup-container {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 10px;
+}
+
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 28px;
+  height: 28px;
+}
+
+.logo-text h1 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+
+.live-status {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pulse-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00E676;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #00E676;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.4; }
+  50% { opacity: 1; }
+  100% { opacity: 0.4; }
+}
+
+.header-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.icon-btn {
+  background: none;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 5px;
+  cursor: pointer;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.icon-btn:hover {
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Active Tab Banner */
+.active-tab-banner {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+.tab-domain-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.active-label {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+}
+
+.current-domain {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Badges */
+.badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.badge-productive { background-color: #E8F5E9; color: var(--productive); }
+.badge-educational { background-color: #E3F2FD; color: var(--educational); }
+.badge-social { background-color: #FFF3E0; color: var(--social); }
+.badge-entertainment { background-color: #FCE4EC; color: var(--entertainment); }
+.badge-neutral { background-color: #ECEFF1; color: var(--neutral); }
+.badge-idle { background-color: #F3E5F5; color: var(--accent); }
+.badge-active { background-color: #E8F5E9; color: #2E7D32; }
+
+/* Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.metric-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 10px;
+  text-align: center;
+  box-shadow: var(--shadow);
+}
+
+.metric-label {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.metric-value {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.text-productive {
+  color: var(--productive);
+}
+
+/* Chart Section */
+.chart-section {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 10px 12px;
+  box-shadow: var(--shadow);
+}
+
+.chart-header h2 {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.chart-wrapper {
+  height: 90px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Focus Card */
+.focus-card {
+  background: linear-gradient(135deg, #FAF7FF 0%, #F3EDFD 100%);
+  border: 1px solid #D1C4E9;
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.focus-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.focus-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 700;
+  font-size: 12.5px;
+  color: var(--accent);
+}
+
+.focus-countdown {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--accent);
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.btn {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #512DA8;
+}
+
+.btn-danger {
+  background-color: #D32F2F;
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #B71C1C;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding-top: 4px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 11.5px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link-btn:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}

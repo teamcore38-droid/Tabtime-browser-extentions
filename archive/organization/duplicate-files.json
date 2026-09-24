@@ -1,0 +1,178 @@
+[
+  {
+    "SHA256": "0231D7EFE0A3824653957657679852F7A9401D75E2B4326FA581966CE471F5FB",
+    "Files": [
+      "archive\\extracted-documents\\extracted_tabtime\\word\\media\\image2.png",
+      "images\\diagrams\\fig_data_flow_v2.png"
+    ]
+  },
+  {
+    "SHA256": "0657562495208618120DEEB1C92D0342CDF9007AD8599CAB794C360FD36EE13A",
+    "Files": [
+      "images\\screenshots\\code\\Mathematical Productivity Score.png",
+      "images\\screenshots\\code\\fig_code_scoring.png"
+    ]
+  },
+  {
+    "SHA256": "088FC7CEBC2D8DED93A8EC0B19EC8AB1163897A52A7086AD6BA93F8BFA0A1282",
+    "Files": [
+      "images\\screenshots\\code\\Event Listeners & Tracking Engine in background js.png",
+      "images\\screenshots\\code\\fig_code_tracking.png"
+    ]
+  },
+  {
+    "SHA256": "098EC508E2EE51B68A37CC8D8C9D2776AA9FCBBD6823C2647866FEB3D5409CBF",
+    "Files": [
+      "images\\banners\\tabtime_google_form_header.jpg",
+      "images\\banners\\tabtime_form_banner.jpg"
+    ]
+  },
+  {
+    "SHA256": "17BDFB14E1B652B897E08A483A2BEA5A5924C0906158B83E1F28A656AEE0EA2C",
+    "Files": [
+      "images\\screenshots\\code\\Manifest V3 format manifest.json filw.png",
+      "images\\screenshots\\code\\fig_code_manifest.png"
+    ]
+  },
+  {
+    "SHA256": "25A6D3B142461E617328F6ECD28EB296CBD6143288E4D44C61850288DE5E4306",
+    "Files": [
+      "images\\screenshots\\questionnaire\\Google Form in questionnaire screenshot3.png",
+      "images\\screenshots\\questionnaire\\fig_gform_questionnaire_part3.png"
+    ]
+  },
+  {
+    "SHA256": "35CB33C95E23BE81BFAD76103132712E85ADD430565F2D81C466CF595313291C",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image1.png",
+      "images\\diagrams\\fig1_conceptual_overview.png"
+    ]
+  },
+  {
+    "SHA256": "4DE10F912E9374C923B630505B296B33AE4E8E332FE79845E8B40535089C2295",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image4.png",
+      "archive\\extracted-documents\\extracted_tabtime\\word\\media\\image1.png",
+      "images\\diagrams\\fig4_three_layer_architecture.png"
+    ]
+  },
+  {
+    "SHA256": "55ED6A825347121125D655E3777313C75B5F896729F581E8322CB29933E3434F",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image3.png",
+      "images\\diagrams\\fig3_functional_requirements.png"
+    ]
+  },
+  {
+    "SHA256": "596A445F91DFA65A50DA7C1D0F2380385FA3CF9B54A91CD4B92E350D5DDF340C",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image6.png",
+      "images\\diagrams\\fig6_analytics_pipeline.png"
+    ]
+  },
+  {
+    "SHA256": "5CBA54F17AE4589100A87A52DE8733E497737235ED2DD33EB24A16AEC24B91C8",
+    "Files": [
+      "images\\screenshots\\survey-responses\\form resposses spredsheet screenshot2.png",
+      "images\\screenshots\\survey-responses\\fig_gform_spreadsheet_part2.png"
+    ]
+  },
+  {
+    "SHA256": "5F28179ED1F56381481AA8FC950827662581EFD00837DFFB39AA0C85F8701F5F",
+    "Files": [
+      "images\\screenshots\\code\\IndexedDB Local Data Layer storage js.png",
+      "images\\screenshots\\code\\fig_code_storage.png"
+    ]
+  },
+  {
+    "SHA256": "5FDEC1B28FFE62CE1EC44FBEB835AA47F4F9517C7867AD253B1322C8C16AB423",
+    "Files": [
+      "archive\\extracted-documents\\extracted_tabtime\\word\\media\\image3.png",
+      "images\\screenshots\\interface\\fig_ui_dashboard.png"
+    ]
+  },
+  {
+    "SHA256": "6576198409FC136567AC077BF5D7A1F16AD114CAF047D20E95E540077B86AFAD",
+    "Files": [
+      "archive\\extracted-documents\\extracted_tabtime\\word\\media\\image4.png",
+      "images\\screenshots\\interface\\fig_ui_popup.png"
+    ]
+  },
+  {
+    "SHA256": "6E7289E106B66D48EEBEADFA502C2E267D276BD7059BA1CB31C32CA1BDCA33B7",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image5.png",
+      "images\\diagrams\\fig5_data_flow_logic.png"
+    ]
+  },
+  {
+    "SHA256": "72AAAB0436C6495FCC779B5C9BAD3837363D3234D21605ECF77C95B857BF0955",
+    "Files": [
+      "images\\screenshots\\code\\DeclarativeNetRequest Focus Engine in backgound js.png",
+      "images\\screenshots\\code\\fig_code_focus.png"
+    ]
+  },
+  {
+    "SHA256": "83F644D5C00520E3E711A29BD452B26218199DC778D913A99F2E0CBD9B60CE4B",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image2.png",
+      "images\\diagrams\\fig2_main_aim.png"
+    ]
+  },
+  {
+    "SHA256": "8790544797BE8453B82C8A9FAA09ACDEC73ABC5BC0463CD65BAE3330EC096F8B",
+    "Files": [
+      "images\\screenshots\\survey-responses\\form resposses spredsheet screenshot1.png",
+      "images\\screenshots\\survey-responses\\fig_gform_spreadsheet_part1.png"
+    ]
+  },
+  {
+    "SHA256": "B7E97FCAF5E79EEC439376DD169FAEA345D49764FAF077852B07F0DB9BE8FBA3",
+    "Files": [
+      "archive\\extracted-documents\\extracted_tabtime\\word\\media\\image5.png",
+      "images\\screenshots\\interface\\fig_ui_settings.png"
+    ]
+  },
+  {
+    "SHA256": "B9A6BAC85B7A54949CD129DD2843DD8FD6A1125DD6DC12157BE1BBD9B09A2ED1",
+    "Files": [
+      "images\\screenshots\\questionnaire\\Google Form in questionnaire screenshot1.png",
+      "images\\screenshots\\questionnaire\\fig_gform_questionnaire_part1.png"
+    ]
+  },
+  {
+    "SHA256": "C6287BBD350CB6809E1E35BD49C213B92DC4D478FBF346BB10A2A14CB6053B49",
+    "Files": [
+      "images\\screenshots\\questionnaire\\Google Form in questionnaire screenshot2.png",
+      "images\\screenshots\\questionnaire\\fig_gform_questionnaire_part2.png"
+    ]
+  },
+  {
+    "SHA256": "CA37735FA5D3074A186181C3DC1D58EB9B2BAD34C8204D1563DBCBFCFD8B913C",
+    "Files": [
+      "images\\screenshots\\questionnaire\\Google Form in questionnaire screenshot5.png",
+      "images\\screenshots\\questionnaire\\fig_gform_questionnaire_part5.png"
+    ]
+  },
+  {
+    "SHA256": "CCA23338D3C181B68D44BC3B314517B230799F124DCFF43D368BAF9722F9D47B",
+    "Files": [
+      "images\\screenshots\\questionnaire\\Google Form in questionnaire screenshot4.png",
+      "images\\screenshots\\questionnaire\\fig_gform_questionnaire_part4.png"
+    ]
+  },
+  {
+    "SHA256": "E5A0422F260390A51F96062356CC6955590BA297E3D5E73D61D33FE6E0E5AD0F",
+    "Files": [
+      "archive\\extracted-documents\\extracted_irp\\word\\media\\image7.png",
+      "images\\diagrams\\fig7_testing_strategy.png"
+    ]
+  },
+  {
+    "SHA256": "EB3420B22412291DCC52D9BD774930E5EF0540F03B9A579E16ABD1AAC4776993",
+    "Files": [
+      "documents\\reports\\TabTime_Final_Comprehensive_Report.docx",
+      "documents\\reports\\TabTime_Final_Master_Report_Updated.docx"
+    ]
+  }
+]
